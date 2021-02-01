@@ -8,7 +8,7 @@ const navbar = () =>
 {
     return (
         <Navbar className="navbar navbar-expand navbar-dark" style={{backgroundColor: "#925bc9"}}> 
-        <Nav.Link as={Link} to="/" className="navbar-brand">
+        <Nav.Link as={Link} to="/" className="navbar-brand" style={{paddingLeft: "0px"}}>
             <img src={logo} width="40" height="40" className="d-inline-block align-top" alt="logo"/>
             <span className="h2" style={{ fontFamily:'Lilita One', marginLeft: "5px" }}>Project <span style={{ color:"#ffd91d" }}>Happy</span></span>
         </Nav.Link>
@@ -31,7 +31,7 @@ const navbar = () =>
 
             <ul className="navbar-nav mr-auto" style={{position: 'absolute', right: 20}}>
                 <Nav.Link href="#" class="nav-item mr-3">Login</Nav.Link>
-                <Nav.Link href="#" class="nav-item mr-3" style={{marginRight: "10px"}}>Register</Nav.Link>
+                <Nav.Link href="#" class="nav-item mr-3" style={{marginRight: "10px", marginLeft: "15px"}}>Register</Nav.Link>
             </ul>
         </div>
         </Navbar>
