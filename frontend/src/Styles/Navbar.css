@@ -1,0 +1,16 @@
+body {
+    background: repeating-linear-gradient(
+      to right,
+      #d2c7ff,
+      #d2c7ff 100px,
+      #fffdf5 100px,
+      #fffdf5 200px);
+    color: black;
+    font-family:"Roboto";
+  }
+
+  .navbar-dark .navbar-nav .nav-link {
+      font-size:20px;
+      font-family:"Roboto";
+      color:#ffffff;
+  }
