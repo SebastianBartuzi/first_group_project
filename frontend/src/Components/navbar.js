@@ -15,7 +15,7 @@ const navbar = () =>
 
         <div className="collapse navbar-collapse" id="navbarNav" style={{fontStyle: 'italic'}}>
             <ul className="navbar-nav mr-auto">
-                <Nav.Link as={Link} to="/" class="nav-item ml-3" style={{marginLeft: "15px"}}>Random</Nav.Link>
+                <Nav.Link as={Link} to="/" className="nav-item ml-3" style={{marginLeft: "15px"}}>Random</Nav.Link>
 
                 <NavDropdown title="Categories" style={{marginLeft: "15px"}}>
                     <NavDropdown.Item as={Link} to="/">Cats</NavDropdown.Item>
@@ -30,8 +30,8 @@ const navbar = () =>
             </ul>
 
             <ul className="navbar-nav mr-auto" style={{position: 'absolute', right: 20}}>
-                <Nav.Link href="#" class="nav-item mr-3">Login</Nav.Link>
-                <Nav.Link href="#" class="nav-item mr-3" style={{marginRight: "10px", marginLeft: "15px"}}>Register</Nav.Link>
+                <Nav.Link href="#" className="nav-item mr-3">Login</Nav.Link>
+                <Nav.Link href="#" className="nav-item mr-3" style={{marginRight: "10px", marginLeft: "15px"}}>Register</Nav.Link>
             </ul>
         </div>
         </Navbar>
