@@ -30,8 +30,8 @@ const navbar = () =>
             </ul>
 
             <ul className="navbar-nav mr-auto" style={{position: 'absolute', right: 20}}>
-                <Nav.Link href="#" className="nav-item mr-3">Login</Nav.Link>
-                <Nav.Link href="#" className="nav-item mr-3" style={{marginRight: "10px", marginLeft: "15px"}}>Register</Nav.Link>
+                <Nav.Link as={Link} to="/login" className="nav-item mr-3">Login</Nav.Link>
+                <Nav.Link as={Link} to="/register" className="nav-item mr-3" style={{marginRight: "10px", marginLeft: "15px"}}>Register</Nav.Link>
             </ul>
         </div>
         </Navbar>
