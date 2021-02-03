@@ -32,6 +32,7 @@ const PrivatePage = ({history}) =>{
     const onLogout = () =>{
         localStorage.removeItem("authToken");
         history.push("/");
+        history.go(0);
     }
 
 

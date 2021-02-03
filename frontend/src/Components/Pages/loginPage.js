@@ -25,6 +25,7 @@ const LoginPage = ({history}) =>{
 
             localStorage.setItem("authToken", data.token);
             history.push("/");
+            history.go(0);
         }catch(error){
             setError(error.response.data.error);
             setTimeout(() => {
