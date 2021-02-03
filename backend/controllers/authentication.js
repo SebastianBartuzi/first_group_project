@@ -1,4 +1,7 @@
 const User = require("../models/UserModel");
+const jwt = require("jsonwebtoken");
+const sendEmail = require("../helpers/sendEmail");
+var url = require('url');
 
 exports.login = async (req, res, next) => {
     const {username, password} = req.body;
@@ -31,18 +34,67 @@ exports.register = async (req, res, next) => {
     if(userExists)
         return res.status(400).json({error: "There exists a user with the same email!"});
 
-    // Add the account to the database
+    let token = jwt.sign({username, email, password}, process.env.JWT_SECRET, {expiresIn: '20min'});
+
+    //Add the account to the database
+    // try{
+    //     const user = await User.create({
+    //         username,
+    //         email,
+    //         password,
+    //     });
+
+    //     sendToken(user, 201, res);
+
     try{
-        const user = await User.create({
-            username,
-            email,
-            password,
-        });
-
-        sendToken(user, 201, res);
-
-    }catch(err){
+        console.log(token);
+    await sendEmail({
+        target: email,
+        subject: "Activate account",
+        text: `
+        <p> Please enter to this link to activate your email </p>
+        <form method="post" action="${process.env.CLIENT_URL}/api/authentication/activate/${token}">
+        <input type="submit" text="a"/>
+        </form>
+        `});
+    res.send("Email has been sent");
+    }catch(err)
+    {
         return res.status(500).json({error: err.message});
+    }
+
+}
+
+exports.activate = async (req, res, next) =>{
+    const url = req.url;
+    const urls = url.split("/");
+    const token = urls.slice(-1)[0];
+
+    if(token){
+        jwt.verify(token, process.env.JWT_SECRET, async function(err, decodedToken){
+            if(err){
+                return res.status(400).json({error: "Expired Link"});
+            }
+            const {username, email, password} = decodedToken;
+
+            const userExists = await User.findOne({email});
+            if(userExists)
+                return res.status(400).json({error: "There exists a user with the same email!"});
+
+            //Add the account to the database
+            try{
+                const user = await User.create({
+                    username,
+                    email,
+                    password,
+        });
+        console.log(username);
+            sendToken(user,201,res);
+        }catch(err)
+        {res.status(400).json({error:err.message})}
+    });
+    }else{
+        return res.json({error: "Something went wrong!"});
     }
 }
 
