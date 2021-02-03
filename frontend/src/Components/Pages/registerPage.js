@@ -29,7 +29,7 @@ const RegisterPage = ({history}) =>{
         try{
             const {data} = await axios.post("api/authentication/register", {username,email,password},config);
 
-            localStorage.setItem("authToken", data.token);
+            // localStorage.setItem("authToken", data.token);
             history.push("/");
             history.go(0);
         }catch(error){
