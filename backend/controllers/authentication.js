@@ -7,18 +7,18 @@ exports.login = async (req, res, next) => {
     const {username, password} = req.body;
     
     if(!username || !password)
-        return res.status(400).json({error: "Please enter your username or password!"});
+        return res.status(400).json({error: "Wrong username/password!"});
     
     try{
         const userExists = await User.findOne({username}).select("+password");
         
         if(!userExists)
-            return res.status(404).json({error: "Wrong username or password"});
+            return res.status(404).json({error: "Wrong username/password!"});
         
         const userValid = await userExists.passwordMatch(password);
 
         if(!userValid)
-            return res.status(404).json({error: "Wrong username or password"});
+            return res.status(404).json({error: "Wrong username/password!"});
         else
             sendToken(userExists, 200, res);
     }catch(err){
@@ -32,7 +32,7 @@ exports.register = async (req, res, next) => {
     // Check if there aren't any other accounts with the same email
     const userExists = await User.findOne({email});
     if(userExists)
-        return res.status(400).json({error: "There exists a user with the same email!"});
+        return res.status(400).json({error: "Email already in use!"});
 
     let token = jwt.sign({username, email, password}, process.env.JWT_SECRET, {expiresIn: '20min'});
 
@@ -79,7 +79,7 @@ exports.activate = async (req, res, next) =>{
 
             const userExists = await User.findOne({email});
             if(userExists)
-                return res.status(400).json({error: "There exists a user with the same email!"});
+                return res.status(400).json({error: "Email already in use!"});
 
             //Add the account to the database
             try{

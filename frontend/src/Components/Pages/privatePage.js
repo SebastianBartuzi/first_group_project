@@ -37,10 +37,10 @@ const PrivatePage = ({history}) =>{
 
 
     return(
-        <div>
-            <h1>Private</h1>
+        <div class="content-box">
+            <h1 class="content-title">Private</h1>
             {error && {error}}
-            <button onClick={onLogout}>Logout</button>
+            <button onClick={onLogout} class="button" style={{marginTop: "1em"}}>Logout</button>
         
         </div>
     )

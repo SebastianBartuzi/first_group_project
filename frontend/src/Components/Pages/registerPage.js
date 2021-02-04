@@ -41,39 +41,39 @@ const RegisterPage = ({history}) =>{
     }
 
     return(
-        <div>
+        <div class="content-box">
             <form onSubmit={onRegister}>
-                <h1>Register</h1>
-                {error && <span>{error}</span>}
-                <label>Username: </label>
+                <h1 class="content-title">Register</h1>
+                {error && <p class="error-message">{error}</p>}
                 <input type="text" 
                     required
-                    placeholder="Input Username" 
+                    placeholder="Username" 
                     value={username}
-                    onChange={(e) => setUsername(e.target.value)}/>
+                    onChange={(e) => setUsername(e.target.value)}
+                    class="text-input"/>
                 <br/>
-                <label>E-mail: </label>
                 <input type="text" 
                     required
-                    placeholder="Input E-mail" 
+                    placeholder="Email" 
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}/>
+                    onChange={(e) => setEmail(e.target.value)}
+                    class="text-input" style={{marginTop: "0.5em"}}/>
                 <br/>
-                <label>Password: </label>
-                <input type="text" 
+                <input type="password" 
                     required
-                    placeholder="Input Password" 
+                    placeholder="Password" 
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}/>
+                    onChange={(e) => setPassword(e.target.value)}
+                    class="text-input" style={{marginTop: "0.5em"}}/>
                 <br/>
-                <label>Verify Password: </label>
-                <input type="text" 
+                <input type="password" 
                     required
                     placeholder="Verify Password" 
                     value={verifyPassword}
-                    onChange={(e) => setVerifyPassword(e.target.value)}/>
+                    onChange={(e) => setVerifyPassword(e.target.value)}
+                    class="text-input" style={{marginTop: "0.5em"}}/>
                 <br/>
-                <button type="submit">Register</button>
+                <button type="submit"  class="button" style={{marginTop: "1em"}}>Register</button>
             </form>
         </div>
     )
