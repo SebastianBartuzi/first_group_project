@@ -9,6 +9,8 @@ import PrivateRoute from "./Routes/PrivateRoute";
 import privatePage from "./Components/Pages/privatePage";
 import loginPage from "./Components/Pages/loginPage";
 import registerPage from "./Components/Pages/registerPage";
+import forgotPasswordPage from "./Components/Pages/forgotPasswordPage";
+import resetPasswordPage from "./Components/Pages/resetPasswordPage";
 import { useState } from "react";
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
             </Route>
             <Route exact path="/login" component={loginPage}/>
             <Route exact path="/register" component={registerPage}/>
+            <Route exact path="/forgotpassword" component={forgotPasswordPage}/>
+            <Route exact path="/resetpassword/:resetToken" component={resetPasswordPage}/>
           </Switch>
         </Router>
       </div>
