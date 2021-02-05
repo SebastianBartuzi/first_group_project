@@ -11,7 +11,7 @@ import loginPage from "./Components/Pages/loginPage";
 import registerPage from "./Components/Pages/registerPage";
 import forgotPasswordPage from "./Components/Pages/forgotPasswordPage";
 import resetPasswordPage from "./Components/Pages/resetPasswordPage";
-import { useState } from "react";
+import deleteAccountPage from "./Components/Pages/deleteAccountPage";
 
 function App() {
   return (
@@ -27,6 +27,7 @@ function App() {
             <Route exact path="/register" component={registerPage}/>
             <Route exact path="/forgotpassword" component={forgotPasswordPage}/>
             <Route exact path="/resetpassword/:resetToken" component={resetPasswordPage}/>
+            <Route exact path="/delete/" component={deleteAccountPage}/>
           </Switch>
         </Router>
       </div>

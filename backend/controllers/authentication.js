@@ -155,6 +155,65 @@ exports.resetpassword = async (req, res, next) => {
     }
 }
 
+exports.deleteAccount = async (req, res, next) => {
+    const {username} = req.body;
+
+    try{
+        const userExists = await User.findOne({username});
+        if(!userExists)
+            return res.status(400).json({error: "User does not exist!"});
+
+        let token = jwt.sign({username}, process.env.JWT_SECRET, {expiresIn: '20min'});
+
+        try{
+            sendEmail({
+                target: userExists.email,
+                subject: "Delete account",
+                text: `
+                    <p> Click here to delete your account </p>
+                    <form method="post" action="${process.env.CLIENT_URL}/api/authentication/validateDelete/${token}">
+                    <input type="submit" text="a"/>
+                    </form>
+                `
+            });
+            console.log(`${process.env.CLIENT_URL}/api/authentication/validateDelete/${token}`);
+
+            res.status(200).json({success: "Email sent"});
+
+        }catch(error){
+            res.status(400).json({error: error.message});
+        }
+
+    }catch(error){
+        res.status(400).json({error: error.message});
+    }
+}
+
+exports.validateDelete = async (req, res, next) => {
+    const url = req.url;
+    const urls = url.split("/");
+    const token = urls.slice(-1)[0];
+
+    if(token){
+        jwt.verify(token, process.env.JWT_SECRET, async function(err, decodedToken){
+            if(err){
+                return res.status(400).json({error: "Expired Link"});
+            }
+            const {username} = decodedToken;
+            console.log(username)
+
+            const userExists = await User.findOne({username});
+            if(!userExists)
+                return res.status(400).json({error: "Account not found!"});
+            
+            userExists.delete();
+            res.status(200).send({success: "Deleted account"});
+    });
+    }else{
+        return res.json({error: "Something went wrong!"});
+    }
+}
+
 const sendToken = async (user, statusCode, res) => {
     const token = await user.getToken();
     return res.status(statusCode).json({token: token});
