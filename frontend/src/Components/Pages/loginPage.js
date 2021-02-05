@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "../../Styles/form.css";
 
 const LoginPage = ({history}) =>{
     const [username, setUsername] = useState("");
