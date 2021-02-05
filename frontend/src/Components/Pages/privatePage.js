@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import "../../Styles/form.css";
 
 const PrivatePage = ({history}) =>{
     const [error, setError] = useState("");

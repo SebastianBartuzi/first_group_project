@@ -1,10 +1,10 @@
 import axios from 'axios'
 import {useState} from 'react'
-
+import "../../Styles/form.css";
 
 const ForgotPasswordPage = () =>{
     const [username, setUsername] = useState("");
-    const [succes, setSuccess] = useState("");
+    const [success, setSuccess] = useState("");
     const [error, setError] = useState("");
 
     const onForgotPassword = async (e) => {
@@ -18,7 +18,7 @@ const ForgotPasswordPage = () =>{
 
         try{
             const {data} = await axios.post("api/authentication/forgotpassword", {username}, config);
-            setSuccess("E-mail sent!");
+            setSuccess("Email sent!");
         }catch(error){
             setError(error.response.data.error);
             setUsername("");
@@ -27,22 +27,20 @@ const ForgotPasswordPage = () =>{
     };
 
     return (
-        <div>
+        <div class="content-box">
             <form onSubmit={onForgotPassword} >
-                <h1>Forgot Password</h1>
-                {error && <span> {error} </span>}
-                {succes && <span> {succes} </span>}
-                <p>Please enter your username</p>
-                <br/>
-                <label>Username: </label>
+                <h1 class="content-title">Forgot Password</h1>
+                {error && <p class="error-message">{error}</p>}
+                {success && <p class="success-message">{success}</p>}
                 <input
-                    type="test"
+                    type="text"
                     required
                     placeholder = "Username"
                     value = {username}
                     onChange = {(e) => setUsername(e.target.value)}
+                    class="text-input"
                 />
-                <button type="submit">Send E-mail</button>
+                <button type="submit" class="button" style={{marginTop: "1em"}}>Send Email</button>
             </form>
         </div>
     )

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import "../../Styles/form.css";
 
 const ResetPasswordPage = ({match}) =>{
     const [password, setPassword] = useState("");
@@ -22,7 +23,7 @@ const ResetPasswordPage = ({match}) =>{
             setTimeout(() => {
                 setError("");
             }, 5000);
-            return setError("Passwords don't match");
+            return setError("Passwords don't match!");
         }
 
         try {
@@ -38,26 +39,26 @@ const ResetPasswordPage = ({match}) =>{
     }
 
     return (
-        <div>
+        <div class="content-box">
             <form onSubmit={onResetPassword}>
-                <h1>Reset Password</h1>
-                {error && <span> {error} </span>}
-                {success && <span> {success} </span>}
+                <h1 class="content-title">Reset Password</h1>
+                {error && <p class="error-message">{error}</p>}
+                {success && <p class="success-message">{success}</p>}
                 <br/>
-                <label>Password: </label>
                 <input type="password"
                     required
-                    placeholder = "Enter password"
+                    placeholder = "Password"
                     value = {password}
-                    onChange ={(e) => setPassword(e.target.value)}/>
+                    onChange ={(e) => setPassword(e.target.value)}
+                    class="text-input"/>
                     <br/>
-                <label>Verify Password: </label>
                 <input type="password"
                     required
-                    placeholder = "Verify password"
+                    placeholder = "Verify Password"
                     value = {verifyPassword}
-                    onChange ={(e) => setVerifyPassword(e.target.value)}/>
-                <button type="submit">Reset Password</button>
+                    onChange ={(e) => setVerifyPassword(e.target.value)}
+                    class="text-input" style={{marginTop: "0.5em"}}/>
+                <button type="submit" class="button" style={{marginTop: "1em"}}>Reset Password</button>
             </form>
         </div>
     )
