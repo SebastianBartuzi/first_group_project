@@ -176,7 +176,7 @@ exports.deleteAccount = async (req, res, next) => {
                     </form>
                 `
             });
-            console.log(`${process.env.CLIENT_URL}/api/authentication/validateDelete/${token}`);
+            
 
             res.status(200).json({success: "Email sent"});
 
@@ -208,6 +208,107 @@ exports.validateDelete = async (req, res, next) => {
             
             userExists.delete();
             res.status(200).send({success: "Deleted account"});
+    });
+    }else{
+        return res.json({error: "Something went wrong!"});
+    }
+}
+
+exports.changemail = async (req, res, next) => {
+    const {username} = req.body;
+
+    try{
+        const userExists = await User.findOne({username});
+        if(!userExists)
+            res.status(400).json({error: "User not found"});
+
+        let token = jwt.sign({username}, process.env.JWT_SECRET, {expiresIn: '20min'});
+
+        try{
+            const url = `${process.env.CLIENT_URL}/changemailrequest/${token}`;
+            sendEmail({
+                target: userExists.email,
+                subject: "Change mail",
+                text: `
+                    <p> Click here to change your mail </p>
+                    <a href=${url} clicktracking=off> Reset Email </a>
+                    </form>
+                `
+            });
+            console.log(url);
+
+            res.status(200).json({success: "Email sent"});
+        }catch(error){
+            res.status(400).json({error: error.message});
+        }
+
+    }catch(error){
+        res.status(400).json({error: error.message});
+    }
+}
+
+exports.changemailRequest = async (req, res, next) => {
+    const url = req.url;
+    const urls = url.split("/");
+    const token = urls.slice(-1)[0];
+    const {email} = req.body;
+
+    if(token){
+        jwt.verify(token, process.env.JWT_SECRET, async function(err, decodedToken){
+            if(err){
+                return res.status(400).json({error: "Expired Link"});
+            }
+            const {username} = decodedToken;
+            console.log(username)
+
+            const userExists = await User.findOne({username});
+            if(!userExists)
+                return res.status(400).json({error: "Account not found!"});
+            
+                let token = jwt.sign({username, email}, process.env.JWT_SECRET, {expiresIn: '20min'});
+
+                try{
+                    sendEmail({
+                        target: email,
+                        subject: "Change mail",
+                        text: `
+                            <p> Click here to change your mail </p>
+                            <form method="post" action="${process.env.CLIENT_URL}/api/authentication/changemailvalidate/${token}">
+                            <input type="submit" text="a"/>
+                            </form>
+                        `
+                    });
+                    console.log(`${process.env.CLIENT_URL}/api/authentication/changemailvalidate/${token}`);
+        
+                    res.status(200).json({success: "Email sent"});
+                }catch(error){
+                    res.status(400).json({error: error.message});
+                }
+        
+    });
+    }else{
+        return res.json({error: "Something went wrong!"});
+    }
+}
+
+exports.changemailvalidate = (req, res, next) => {
+    const url = req.url;
+    const urls = url.split("/");
+    const token = urls.slice(-1)[0];
+
+    if(token){
+        jwt.verify(token, process.env.JWT_SECRET, async function(err, decodedToken){
+            if(err){
+                return res.status(400).json({error: "Expired Link"});
+            }
+            const {username, email} = decodedToken;
+
+            const userExists = await User.findOne({username});
+            if(!userExists)
+                return res.status(400).json({error: "Account not found!"});
+            
+            await userExists.updateOne({email: email });
+            res.status(200).json({success: "Email updated"});
     });
     }else{
         return res.json({error: "Something went wrong!"});
