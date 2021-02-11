@@ -1,6 +1,5 @@
 import React from "react";
 import axios from 'axios';
-import "../Styles/catImage.css";
 
 class CatImage extends React.Component {
     constructor() {
@@ -18,9 +17,18 @@ class CatImage extends React.Component {
         });
     }
     
+    resizeImage({target:img}) {
+        let ratio = img.height / img.width;
+        if (window.innerWidth * 0.5 * ratio > window.innerHeight * 0.6) {
+            img.height = window.innerHeight * 0.6;
+        } else {
+            img.width = window.innerWidth * 0.5;
+        }
+    }
+
     render() {
         return (
-            <img src={this.state.imageUrl} className="image"/>
+            <img src={this.state.imageUrl} className="resize" onLoad={this.resizeImage}/>
         )
     }
 }
