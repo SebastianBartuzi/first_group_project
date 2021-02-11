@@ -29,9 +29,12 @@ const navbar = () =>
                 <Nav.Link href="#" style={{marginLeft: "15px"}}>Favourites</Nav.Link>
             </ul>
 
-            <ul className="navbar-nav mr-auto" style={{position: 'absolute', right: 20}}>
+            <ul className="navbar-nav mr-auto" style={{position: 'absolute', right: 50}}>
                 {localStorage.getItem("authToken")
-                 ? <Nav.Link as={Link} to="/private" className="nav-item mr-3">Profile</Nav.Link>
+                 ? <NavDropdown title="Profile" style={{marginLeft: "15px"}}>
+                        <NavDropdown.Item as={Link} to="/private">Edit Profile</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/">Mood Tracker</NavDropdown.Item>
+                </NavDropdown>
                  : <><Nav.Link as={Link} to="/login" className="nav-item mr-3">Login</Nav.Link>
                      <Nav.Link as={Link} to="/register" className="nav-item mr-3" style={{marginRight: "10px", marginLeft: "15px"}}>Register</Nav.Link></>}
             </ul>
