@@ -11,7 +11,7 @@ exports.login = async (req, res, next) => {
     
     try{
         const userExists = await User.findOne({username}).select("+password");
-        
+ 
         if(!userExists)
             return res.status(404).json({error: "Wrong username/password!"});
         
@@ -88,7 +88,7 @@ exports.activate = async (req, res, next) =>{
                     email,
                     password,
         });
-        console.log(username);
+        
             sendToken(user,201,res);
         }catch(err)
         {res.status(400).json({error:err.message})}

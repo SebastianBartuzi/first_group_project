@@ -33,7 +33,7 @@ const navbar = () =>
                 {localStorage.getItem("authToken")
                  ? <NavDropdown title="Profile" style={{marginLeft: "15px"}}>
                         <NavDropdown.Item as={Link} to="/private">Edit Profile</NavDropdown.Item>
-                        <NavDropdown.Item as={Link} to="/">Mood Tracker</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/moodtracker">Mood Tracker</NavDropdown.Item>
                 </NavDropdown>
                  : <><Nav.Link as={Link} to="/login" className="nav-item mr-3">Login</Nav.Link>
                      <Nav.Link as={Link} to="/register" className="nav-item mr-3" style={{marginRight: "10px", marginLeft: "15px"}}>Register</Nav.Link></>}

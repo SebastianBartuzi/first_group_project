@@ -15,6 +15,7 @@ import deleteAccountPage from "./Components/Pages/deleteAccountPage";
 import changeEmailPage from "./Components/Pages/changeEmailPage";
 import ChangeMailRequestPage from "./Components/Pages/changeMailRequestPage";
 import LandingPage from "./Components/Pages/landingPage";
+import MoodTrackerPage from "./Components/Pages/moodTrackerPage";
 
 function App() {
   return (
@@ -23,9 +24,9 @@ function App() {
         <Navbar/>
           <Switch>
             <PrivateRoute exact path="/private" component={privatePage}/>
-            <Route exact path="/private">
-              <h1>Project happy</h1>
-            </Route>
+            <PrivateRoute exact path="/moodtracker" component={MoodTrackerPage}/>
+
+
             <Route exact path="/" component={LandingPage}/>
             <Route exact path="/login" component={loginPage}/>
             <Route exact path="/register" component={registerPage}/>

@@ -39,3 +39,4 @@ app.get('/*', function(req, res) {
   })
 
 app.use("/api/authentication" ,require('./routes/Authentication'));
+app.use("/api/moodcalendar" ,require('./routes/MoodCalendar'));
