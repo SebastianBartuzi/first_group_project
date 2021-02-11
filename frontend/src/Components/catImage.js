@@ -1,5 +1,6 @@
 import React from "react";
-import axios from 'axios'
+import axios from 'axios';
+import "../Styles/catImage.css";
 
 class CatImage extends React.Component {
     constructor() {
@@ -19,7 +20,7 @@ class CatImage extends React.Component {
     
     render() {
         return (
-            <img src={this.state.imageUrl}/>
+            <img src={this.state.imageUrl} className="image"/>
         )
     }
 }
