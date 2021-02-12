@@ -18,7 +18,7 @@ const navbar = () =>
                 <Nav.Link as={Link} to="/" className="nav-item ml-3" style={{marginLeft: "15px"}}>Random</Nav.Link>
 
                 <NavDropdown title="Categories" style={{marginLeft: "15px"}}>
-                    <NavDropdown.Item as={Link} to="/">Cats</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/catgenerator">Cat Generator</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/">Quizzes</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/">Minigames</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/">Jokes</NavDropdown.Item>
