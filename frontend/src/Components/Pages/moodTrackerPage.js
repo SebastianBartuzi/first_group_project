@@ -1,10 +1,29 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import MoodKey from "../moodKey";
 
 const MoodTrackerPage = ({history}) =>{
     const [date, setDate] = useState(new Date());
     const [mood, setMood] = useState("");
     const [data, setData] = useState([]);
+    const [color, setColor] = useState("#f6e4cd");
+    const [yearDays, setYearDays] = useState( Array.from({ length: 12 }, v => Array.from({ length: 31 }, v => 0)));
+    // U will use this to update yearDays: setYearDays(matrix);
+    var matrix = Array.from({ length: 12 }, v => Array.from({ length: 31 }, v => 0));
+
+    const moodArray = [ {
+        "mood": "Happy",
+        "color": "#00FF23",
+        "index": 0
+    }, {
+        "mood": "Sad",
+        "color": "#00FF00",
+        "index": 1
+    },{
+        "mood": "Anxious",
+        "color": "#FF0000",
+        "index": 2
+    }]
 
     const addDate = async (e) => {
         e.preventDefault();
@@ -42,10 +61,19 @@ const MoodTrackerPage = ({history}) =>{
         }catch(error){
             console.log(error);
         }
+
+        // loop through data: data.forEach(() => {}) and change values that exists in the db in matrix
+        // setYearDays(matrix);
+    }
+
+    const changeColor = () =>{
+        setColor("#FF0000");
     }
 
     return(
         <div>
+            <button onClick={changeColor} style = {{ backgroundColor: color}}>Btn</button>
+            <br/><br/>
             <form onSubmit={addDate}>
                 <h1>Add Mood</h1>
                 <br/>
@@ -80,29 +108,12 @@ const MoodTrackerPage = ({history}) =>{
                     </div>))
                 }
 
+
             </form>
-            <div style={{position:"absolute", right:"50px", width: "175px", height:"330px", display: "inline-block", backgroundColor:"#fffef2",  border: "thick solid #fadb5d", padding:"1em"}}>
-                <table style={{fontFamily:"Roboto", fontSize:"23px", fontStyle: "italic", textAlign:"center"}}>
-                    <tr>
-                        <td>Happy</td>
-                        <td style={{color:"blue", textAlign:"center", fontSize:"50px"}}>&#9632;</td>
-                    </tr>
-                    <tr>
-                        <td>Sad</td>
-                        <td style={{color:"yellow", textAlign:"center", fontSize:"50px"}}>&#9632;</td>
-                    </tr>
-                    <tr>
-                        <td>Anxious</td>
-                        <td style={{color:"purple", textAlign:"center", fontSize:"50px"}}>&#9632;</td>
-                    </tr>
-                    <tr>
-                        <td>Excited</td>
-                        <td style={{color:"pink", textAlign:"center", fontSize:"50px"}}>&#9632;</td>
-                    </tr>
-                </table>
-            </div>
+
+            <MoodKey moodArray = {moodArray}/>
         </div>
-        
+        // Create a new component, pass moodArray, yearDays as parameter and use map to create buttons         
         
     )
 }
