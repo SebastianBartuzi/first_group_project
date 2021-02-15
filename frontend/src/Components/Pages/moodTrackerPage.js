@@ -2,27 +2,31 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import MoodKey from "../moodKey";
 
+import MoodButtons from "../moodButtons";
+
 const MoodTrackerPage = ({history}) =>{
     const [date, setDate] = useState(new Date());
     const [mood, setMood] = useState("");
     const [data, setData] = useState([]);
     const [color, setColor] = useState("#f6e4cd");
-    const [yearDays, setYearDays] = useState( Array.from({ length: 12 }, v => Array.from({ length: 31 }, v => 0)));
-    // U will use this to update yearDays: setYearDays(matrix);
-    var matrix = Array.from({ length: 12 }, v => Array.from({ length: 31 }, v => 0));
+    
 
-    const moodArray = [ {
-        "mood": "Happy",
-        "color": "#00FF23",
+    const moodArray = [{
+        "mood": "Neutral",
+        "color": "#FFFFFF",
         "index": 0
     }, {
-        "mood": "Sad",
-        "color": "#00FF00",
+        "mood": "Happy",
+        "color": "#00FF23",
         "index": 1
+    }, {
+        "mood": "Sad",
+        "color": "#007000",
+        "index": 2
     },{
         "mood": "Anxious",
         "color": "#FF0000",
-        "index": 2
+        "index": 3
     }]
 
     const addDate = async (e) => {
@@ -67,12 +71,22 @@ const MoodTrackerPage = ({history}) =>{
     }
 
     const changeColor = () =>{
+        //console.log(matrix)
+        //console.log("hello");
         setColor("#FF0000");
+        //console.log(matrix[0][0]);
+        //console.log("Hi");
     }
 
     return(
         <div>
+            <div>
+                <p> Mood buttons </p>
+            <MoodButtons moodArray = {moodArray}/>
+            </div>
+
             <button onClick={changeColor} style = {{ backgroundColor: color}}>Btn</button>
+            
             <br/><br/>
             <form onSubmit={addDate}>
                 <h1>Add Mood</h1>
@@ -112,6 +126,9 @@ const MoodTrackerPage = ({history}) =>{
             </form>
 
             <MoodKey moodArray = {moodArray}/>
+
+            
+            
         </div>
         // Create a new component, pass moodArray, yearDays as parameter and use map to create buttons         
         
