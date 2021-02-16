@@ -3,9 +3,9 @@ const User = require("../models/UserModel");
 const jwt = require("jsonwebtoken");
 
 exports.addMood = (req, res, next) => {
-    const { token, date, mood } = req.body;
+    const { token, data } = req.body;
 
-    if(!token || !date || !mood)
+    if(!token || !data)
         res.status(400).json({error: "Something went wrong"});
 
     jwt.verify(token, process.env.JWT_SECRET, async function(err, decodedToken){
@@ -21,18 +21,15 @@ exports.addMood = (req, res, next) => {
         console.log(userExists)
 
         try{
-            storedDate = new Date(date);
-            
-            const dateExists = await Calendar.findOne({date: storedDate});
+            const dateExists = await Calendar.findOne({"userID": id});
 
             if(dateExists){
-                await dateExists.updateOne({"mood": mood});
+                await dateExists.updateOne({"moodArray": data});
             }
             else{
                 const calendar = await Calendar.create({
                     "userID": id,
-                    "date": storedDate,
-                    "mood": mood
+                    "moodArray": data
                 });
             }
 
@@ -61,17 +58,8 @@ exports.getMood = (req, res, next) => {
             return res.status(400).json({error: "User does not exist!"});
 
         try{
-            var data = [];
-            const dates = await Calendar.find({"userID": id});
-
-            dates.forEach(element => {
-                var newData = {
-                    "date": element.date,
-                    "mood": element.mood
-                };
-                data.push(newData);
-            });
-            res.status(200).send(data);
+            const data = await Calendar.find({"userID": id});
+            res.status(200).send(data[0].moodArray);
 
         }catch(error){
             res.status(400).json({error: error.message});

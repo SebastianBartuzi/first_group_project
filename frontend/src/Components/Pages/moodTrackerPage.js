@@ -68,6 +68,7 @@ const MoodTrackerPage = ({history}) =>{
 
     const changeColor = () =>{
         setColor("#FF0000");
+        console.log(matrix)
     }
 
     return(
