@@ -1,0 +1,22 @@
+.res button{
+    font-size:2rem !important;
+    font-family:"Roboto";
+    width: 50vw;
+    background-color: #945bc9 !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding-top: 0rem !important;
+    
+}
+
+.dropdown-menu.show{
+    background-color: #e6affc !important;
+}
+
+.DropdownItem{
+
+    width: "50vw";
+}
+/* .button:focus {
+    background-color: #81007f !important;
+} */
