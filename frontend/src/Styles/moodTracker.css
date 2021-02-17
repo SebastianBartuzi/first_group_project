@@ -1,32 +1,96 @@
-label{
-    font-size:25px;
-    font-family:"Roboto";
-    width: 9%;
+label {
+  font-size: 25px;
+  font-family: "Roboto";
+  width: 9%;
+  text-align: center;
 }
 
-button{
-    font-size:20px;
-    font-family:"Roboto";
-    width: 50px;
-    height: 50px;
-    margin-top: 10px;
-    margin-right: 5px;
-    border-radius: 100%;
-    
+.title {
+  text-align: center;
+  font-size: 80px;
+  font-family: "Lilita One";
+  color: #945bc9;
+  background-color: #fadb5d;
+  width: 50%;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 15px;
+}
+
+.text {
+  text-align: center;
+  font-size: 20px;
+  font-family: "Roboto";
+  color: black;
+  background-color: #fadb5d;
+  width: 97%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.column {
+  float: left;
+  padding: 1px;
+}
+
+.left {
+  width: 12%;
+}
+
+.right {
+  width: 88%;
+}
+
+.key {
+  position: absolute;
+  margin-left: 1%;
+  width: auto;
+  height: auto;
+  display: inline-block;
+  background-color: #fffef2;
+  border: thick solid #fadb5d;
+  padding: 1em;
+  font-family: "Roboto";
+  font-size: 23px;
+  font-style: italic;
+  text-align: center;
+}
+
+.button {
+  background-color: #945bc9;
+  padding: 10px;
+  text-align: center;
+  border-radius: 12px;
+  display: inline-block;
+  margin: 10px;
+  width: auto;
+}
+
+.moodButton {
+  font-size: 20px;
+  font-family: "Roboto";
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
+  margin-right: 5px;
+  border-radius: 100%;
 }
 
 .box {
-    display: inline-block;
-    margin: 5em;
-    padding: 20px;
-    
-    width: 80%;
-
-
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-
-    background-color: #fadb5d;
-
+  margin-left: 5em;
+  padding: 20px;
+  width: 75%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fadb5d;
+  text-align: center;
+  grid-area: "box";
+  border-radius: 15px;
 }

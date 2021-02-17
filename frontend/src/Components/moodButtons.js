@@ -75,15 +75,15 @@ const MoodButtons = ({moodArray}) =>{
          return(
             
             yearDays.map((element, index) => (
-                <div> 
-                <label > {months[index]} </label>
+                <div className="row"> 
+                <label className="column left"> {months[index]} </label>
+                <div className="column right">
                 {element.map((mood, counter) => (
                     <span> 
-                    
-                    <button onClick={() => ChangeDayColour(index, counter)} style={{backgroundColor: moodArray[yearDays[index][counter]]["color"] }}>{counter+1}</button>
-
+                    <button className="moodButton" onClick={() => ChangeDayColour(index, counter)} style={{backgroundColor: moodArray[yearDays[index][counter]]["color"] }}>{counter+1}</button>
                     </span>
                 ))}
+                </div>
                 </div>
             ))
          )
@@ -98,11 +98,10 @@ const MoodButtons = ({moodArray}) =>{
 
 
     return (
-
         <div class="box">
-            <button onClick={addData}>Save</button>
-            <button onClick={clearData}>Clear</button>
-            <button onClick={undoChanges}>Undo Changes</button>
+            <button className="button" onClick={addData}>Save</button>
+            <button className="button" onClick={clearData}>Clear</button>
+            <button className="button" onClick={undoChanges}>Undo Changes</button>
 
         {FakeMap()}
                 
