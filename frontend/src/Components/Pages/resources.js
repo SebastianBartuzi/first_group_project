@@ -47,7 +47,7 @@ const Resources = () =>{
         
         <Dropdown.Item href="https://www.childline.org.uk/" target = "_blank" rel = "noopener noreferrer" style={{width: "50vw", fontSize:"1.5rem"}}><p><b>Childline</b></p> 
         <p>Childline offers help to anyone under 19 in the UK with any issue they’re going through.</p>
-        <p>Speak to a counsellor every day from 9am - 3:30am</p>
+        <p>Speak to a counsellor every day from 9:00am - 3:30am</p>
         <p>Phone number: 0800 1111</p>
         <p><i>Click here to visit site</i></p>
         </Dropdown.Item>
