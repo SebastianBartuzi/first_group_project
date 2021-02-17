@@ -80,7 +80,7 @@ const MoodButtons = ({moodArray}) =>{
                 <div className="column right">
                 {element.map((mood, counter) => (
                     <span> 
-                    <button className="moodButton" onClick={() => ChangeDayColour(index, counter)} style={{backgroundColor: moodArray[yearDays[index][counter]]["color"] }}>{counter+1}</button>
+                        <button className="moodButton" onClick={() => ChangeDayColour(index, counter)} style={{backgroundColor: moodArray[yearDays[index][counter]]["color"] }}>{counter+1}</button>
                     </span>
                 ))}
                 </div>
