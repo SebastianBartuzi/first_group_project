@@ -4,38 +4,36 @@ import MoodKey from "../moodKey";
 
 import MoodButtons from "../moodButtons";
 
-const MoodTrackerPage = ({history}) =>{
-    const [date, setDate] = useState(new Date());
-    const [mood, setMood] = useState("");
-    const [data, setData] = useState([]);
-    const [color, setColor] = useState("#f6e4cd");
-    
+const MoodTrackerPage = ({history}) =>{    
 
     const moodArray = [{
-        "mood": "Neutral",
+        "mood": "No Data",
         "color": "#FFFFFF",
         "index": 0
     }, {
-        "mood": "Happy",
-        "color": "#00FF23",
+        "mood": "Great Day",
+        "color": "#C7CEEA",
         "index": 1
     }, {
-        "mood": "Sad",
-        "color": "#007000",
+        "mood": "Good Day",
+        "color": "#B5EAD7",
         "index": 2
     },{
-        "mood": "Anxious",
-        "color": "#FF0000",
+        "mood": "Fine Day",
+        "color": "#FFDAC1",
         "index": 3
+    },
+    {
+        "mood": "Kinda Bad Day",
+        "color": "#FFB7B2",
+        "index": 4
+    },
+    {
+        "mood": "Terrible Day",
+        "color": "#FF9AA2",
+        "index": 5
     }]
 
-    const changeColor = () =>{
-        //console.log(matrix)
-        //console.log("hello");
-        setColor("#FF0000");
-        //console.log(matrix[0][0]);
-        //console.log("Hi");
-    }
 
     return(
         <div>
