@@ -5,13 +5,13 @@ label {
   text-align: center;
 }
 
-.title {
+.titlePage {
   text-align: center;
   font-size: 80px;
   font-family: "Lilita One";
   color: #945bc9;
   background-color: #fadb5d;
-  width: 50%;
+  width: 45%;
   margin: auto;
   margin-top: 10px;
   border-radius: 15px;
@@ -22,6 +22,7 @@ label {
   font-size: 20px;
   font-family: "Roboto";
   color: black;
+  padding: 9px;
   background-color: #fadb5d;
   width: 97%;
   margin: auto;
@@ -45,6 +46,12 @@ label {
 
 .right {
   width: 88%;
+}
+
+hr {
+  background-color: #945bc9;
+  border: none;
+  height: 1px;
 }
 
 .key {

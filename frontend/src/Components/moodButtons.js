@@ -83,6 +83,7 @@ const MoodButtons = ({moodArray}) =>{
                         <button className="moodButton" onClick={() => ChangeDayColour(index, counter)} style={{backgroundColor: moodArray[yearDays[index][counter]]["color"] }}>{counter+1}</button>
                     </span>
                 ))}
+                <hr/>
                 </div>
                 </div>
             ))

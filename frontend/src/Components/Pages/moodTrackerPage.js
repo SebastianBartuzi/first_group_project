@@ -38,8 +38,8 @@ const MoodTrackerPage = ({history}) =>{
     return(
         <div>
             <div>
-                <h1 className="title">Mood Calendar</h1>
-                <p className="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque arcu erat, viverra sit amet vulputate a, fringilla a sapien. In hac habitasse platea dictumst. Fusce a luctus neque, non tempor sapien. Nam convallis erat ac purus ultrices dapibus. Praesent sodales hendrerit auctor. Suspendisse sit amet finibus dolor, ultricies fermentum libero. Phasellus quis libero in urna interdum lobortis vitae vulputate leo. Sed rhoncus odio erat, eget lacinia nibh condimentum at. Praesent bibendum justo quam, efficitur venenatis mi pellentesque eu. Nullam quis sollicitudin velit. Donec varius facilisis faucibus.</p>
+                <h1 className="titlePage">Mood Calendar</h1>
+                <p className="text">Our mood calendar is an effective and easy way of keeping track of your mood. It can help you identify patterns and reflect on the past year.  All you need to do is click on the current day to cycle through the different mood options. The mood key on the left-hand side of the page can be used to match a color to your current mood. You can save your selections by clicking on the ‘Save Changes’ button and undo any changes by clicking on the ‘Undo Changes’ button. You can also use the ‘Clear’ button to clear all previous selections. All it takes is a few seconds from your day to start taking note of your mood patterns!</p>
             </div>
             <MoodButtons moodArray = {moodArray}/>
             <MoodKey moodArray = {moodArray}/>
