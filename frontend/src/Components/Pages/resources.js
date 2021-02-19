@@ -13,6 +13,20 @@ const Resources = () =>{
 
         <div  className ="content-box res"> 
         <h1 class="content-title">Mental Health Resources</h1>
+
+        <DropdownButton title="Manchester" style={{marginTop: "20px"}}>
+        <Dropdown.Item href="https://www.gmmh.nhs.uk/" target = "_blank" rel = "noopener noreferrer" style={{width: "50vw", fontSize:"1.5rem", whiteSpace:"normal"}}><p><b>Greater Manchester Mental Health</b></p>
+        <p>Provides inpatient and community-based mental health care for people living in the city of Manchester and a wide range of specialist mental health and substance misuse services across Greater Manchester.</p>
+        <p>Phone: 0800 953 0285 (24/7 helpline)</p>
+        <p><i>Click here to visit site</i></p>
+        </Dropdown.Item>
+        <Dropdown.Item href="https://www.manchestermind.org/" target = "_blank" rel = "noopener noreferrer" style={{width: "50vw", fontSize:"1.5rem", whiteSpace:"normal"}}><p><b>Mind Manchester</b></p>
+        <p>A space where mental health comes first, believing that everyone deserves to be supported in their mental health needs. Mind Manchester delivers a wind range of services to support people's mental wellbeing.</p>
+        <p>Phone: 0161 769 5732 (10am - 2pm / Mon - Fri)</p>
+        <p><i>Click here to visit site</i></p>
+        </Dropdown.Item>
+        </DropdownButton>
+
         <DropdownButton id="dropdown-basic-button" title="United Kingdom" style={{width: "1000", fontSize:"50px"}}>
         <Dropdown.Item href="https://www.thecalmzone.net" target = "_blank" rel = "noopener noreferrer" style={{width: "50vw", fontSize:"1.5rem", whiteSpace:"normal"}}><p><b>CALM</b></p>
         <p>CALM is the Campaign Against Living Miserably. A charity providing a mental health helpline and webchat.</p>
