@@ -12,11 +12,11 @@ const MoodTrackerPage = ({history}) =>{
         "index": 0
     }, {
         "mood": "Great Day",
-        "color": "#C7CEEA",
+        "color": "#EF818A",
         "index": 1
     }, {
         "mood": "Good Day",
-        "color": "#B5EAD7",
+        "color": "#EFC1BE",
         "index": 2
     },{
         "mood": "Fine Day",
@@ -25,18 +25,22 @@ const MoodTrackerPage = ({history}) =>{
     },
     {
         "mood": "Kinda Bad Day",
-        "color": "#FFB7B2",
+        "color": "#CBB5EB",
         "index": 4
     },
     {
         "mood": "Terrible Day",
-        "color": "#FF9AA2",
+        "color": "#B5EAD7",
         "index": 5
     }]
 
 
     return(
         <div>
+            <div>
+                <h1 className="titlePage">Mood Calendar</h1>
+                <p className="text">Our mood calendar is an effective and easy way of keeping track of your mood. It can help you identify patterns and reflect on the past year.  All you need to do is click on the current day to cycle through the different mood options. The mood key on the left-hand side of the page can be used to match a color to your current mood. You can save your selections by clicking on the ‘Save Changes’ button and undo any changes by clicking on the ‘Undo Changes’ button. You can also use the ‘Clear’ button to clear all previous selections. All it takes is a few seconds from your day to start taking note of your mood patterns!</p>
+            </div>
             <MoodButtons moodArray = {moodArray}/>
             <MoodKey moodArray = {moodArray}/>
 
