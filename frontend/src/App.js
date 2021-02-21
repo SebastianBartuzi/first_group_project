@@ -17,6 +17,7 @@ import ChangeMailRequestPage from "./Components/Pages/changeMailRequestPage";
 import LandingPage from "./Components/Pages/landingPage";
 import MoodTrackerPage from "./Components/Pages/moodTrackerPage";
 import CatGenerator from "./Components/Pages/catGenerator";
+import Resources from "./Components/Pages/resources";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             <Route exact path="/changemail" component={changeEmailPage}/>
             <Route exact path="/changemailrequest/:resetToken" component={ChangeMailRequestPage}/>
             <Route exact path="/catgenerator" component={CatGenerator}/>
+            <Route exact path="/resources" component={Resources}/>
           </Switch>
         </Router>
       </div>
