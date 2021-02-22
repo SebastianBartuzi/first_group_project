@@ -12,7 +12,7 @@
     border-radius: 12px;
     display: flex;
     margin: 0 auto;
-    width: auto;
+    /* width: auto; */
 }
 
 .button:hover {

@@ -18,6 +18,7 @@ import LandingPage from "./Components/Pages/landingPage";
 import MoodTrackerPage from "./Components/Pages/moodTrackerPage";
 import CatGenerator from "./Components/Pages/catGenerator";
 import Resources from "./Components/Pages/resources";
+import JokeGenerator from "./Components/Pages/jokePage";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             <Route exact path="/changemailrequest/:resetToken" component={ChangeMailRequestPage}/>
             <Route exact path="/catgenerator" component={CatGenerator}/>
             <Route exact path="/resources" component={Resources}/>
+            <Route exact path="/jokes" component={JokeGenerator}/>
           </Switch>
         </Router>
       </div>
