@@ -73,6 +73,12 @@ exports.updatePoll = async (req, res, next) => {
             try{
             const poll = await Poll.findOne({});
             console.log(poll)
+
+            var voted = false;
+            poll.options.forEach(option => {
+                if(option.option === answer)
+                    voted = true;
+            })
             
                 const vote = poll.options.map(
                 option =>
@@ -86,9 +92,10 @@ exports.updatePoll = async (req, res, next) => {
               );
             
             if (poll.voted.filter(user => user.toString() === id).length <= 0) {
+                if(voted){
                 poll.voted.push(id);
                 poll.options = vote;
-                await poll.save();
+                await poll.save();}
         
                 return res.status(202).json(poll);
               } else {
