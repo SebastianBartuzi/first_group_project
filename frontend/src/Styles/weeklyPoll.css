@@ -1,0 +1,48 @@
+.poll-radio {
+  padding: 7px;
+  width: 20px;
+  height: 20px;
+}
+
+.poll-title {
+  text-align: center;
+  margin: 15px;
+  color: #945bc9;
+  font-size: 38px;
+  font-family: "Roboto";
+  font-weight: bold;
+}
+
+.poll-inline {
+  display: inline-block !important;
+  padding: 5px;
+}
+
+.poll-text {
+  font-size: 25px;
+  color: black;
+  width: auto;
+  text-align: center;
+  padding: 7px;
+}
+
+.poll-box {
+  margin-top: 25px;
+  width: 40%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fadb5d;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.poll-button {
+  background-color: #945bc9;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  margin: 10px;
+  width: auto;
+}

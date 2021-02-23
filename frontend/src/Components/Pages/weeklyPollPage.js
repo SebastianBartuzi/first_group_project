@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "../../Styles/weeklyPoll.css"
 
 const WeeklyPoll = () => {
     const [question, setQuestion] = useState("");
@@ -62,26 +63,26 @@ const WeeklyPoll = () => {
     }
 
     return(
-        <div>
+        <div className = "poll-box">
             {error}
             <form onSubmit = {onVote}>
-            <p>{question}</p>
+            <p className="poll-title">{question}</p>
             {
                 choices.map(element => (
-                    <div>
-                        <input
+                    <div className="poll-inline">
+                        <input className="poll-radio"
                             type = "radio"
                             name = {element.option}
                             value = {element.option}
                             checked = {answer == element.option}
                             onClick = {() => setAnswer(element.option)}
                             />
-                        <label> {element.option} </label>
+                        <label className="poll-text"> {element.option} </label>
                         <br/>
                     </div>
                     ))
             }
-            <button type = "submit"> Vote </button>
+            <br></br><button type = "submit" className="poll-button"> Vote </button>
             </form>
             {
                 choices.map(element => (
