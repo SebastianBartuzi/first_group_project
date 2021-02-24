@@ -1,3 +1,10 @@
+# Update - Weekly Poll Merge
+The weekly poll has been merged and uses a new node module which we wasn't previously installed. To run the server after pulling the new changes:
+### Step 1.
+Open up a terminal and go to the folder called **frontend**.
+### Step 2.
+Once inside this folder use `npm install react-chartjs-2`.
+
 # Running the Server
 ### Step 1.
 Open up a terminal and go to the folder called **frontend**.
