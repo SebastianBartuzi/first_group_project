@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const User = require("../models/UserModel");
 
 const {login, register, activate, forgotpassword, resetpassword, deleteAccount,
      validateDelete, changemail, changemailRequest, changemailvalidate} = require("../controllers/authentication");
