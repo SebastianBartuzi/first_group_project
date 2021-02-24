@@ -27,7 +27,7 @@ function App() {
           <Switch>
             <PrivateRoute exact path="/private" component={privatePage}/>
             <PrivateRoute exact path="/moodtracker" component={MoodTrackerPage}/>
-            <Route exact path="/weeklypool" component={WeeklyPoll}/>
+            <Route exact path="/weeklypoll" component={WeeklyPoll}/>
 
 
             <Route exact path="/" component={LandingPage}/>

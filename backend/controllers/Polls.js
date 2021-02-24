@@ -12,7 +12,7 @@ exports.getPoll = async (req, res, next) => {
     if(!currentPoll || (Date.now() - currentPoll.created) >= weekInMilliseconds)
     {
         if(currentPoll)
-            currentPoll.remove();
+           await currentPoll.remove();
 
         const data = await fetch('http://polls.apiblueprint.org/questions')
         
