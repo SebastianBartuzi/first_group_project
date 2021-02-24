@@ -41,6 +41,8 @@ function App() {
             <Route exact path="/changemail" component={changeEmailPage}/>
             <Route exact path="/changemailrequest/:resetToken" component={ChangeMailRequestPage}/>
             <Route exact path="/catgenerator" component={CatGenerator}/>
+            <Route exact path="/resources" component={Resources}/>
+            <Route exact path="/jokes" component={JokeGenerator}/>
           </Switch>
         </Router>
       </div>

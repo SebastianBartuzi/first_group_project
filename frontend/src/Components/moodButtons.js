@@ -100,9 +100,9 @@ const MoodButtons = ({moodArray}) =>{
 
     return (
         <div class="box">
-            <button className="button" onClick={addData}>Save</button>
-            <button className="button" onClick={clearData}>Clear</button>
-            <button className="button" onClick={undoChanges}>Undo Changes</button>
+            <button className="moodButton2" onClick={addData}>Save</button>
+            <button className="moodButton2" onClick={clearData}>Clear</button>
+            <button className="moodButton2" onClick={undoChanges}>Undo Changes</button>
 
         {FakeMap()}
                 
