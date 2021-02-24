@@ -4,9 +4,7 @@ const jwt = require("jsonwebtoken");
 const fetch = require("node-fetch");
 
 exports.getPoll = async (req, res, next) => {
-    //var weekInMilliseconds = 7*24*60*60*1000;
-    var weekInMilliseconds = 60*1000;
-
+    var weekInMilliseconds = 7*24*60*60*1000;
 
     var currentPoll = await Poll.findOne({});
     if(!currentPoll || (Date.now() - currentPoll.created) >= weekInMilliseconds)
