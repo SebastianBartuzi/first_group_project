@@ -18,6 +18,8 @@ import LandingPage from "./Components/Pages/landingPage";
 import MoodTrackerPage from "./Components/Pages/moodTrackerPage";
 import CatGenerator from "./Components/Pages/catGenerator";
 import WeeklyPoll from "./Components/Pages/weeklyPollPage";
+import Resources from "./Components/Pages/resources";
+import JokeGenerator from "./Components/Pages/jokePage";
 
 function App() {
   return (
