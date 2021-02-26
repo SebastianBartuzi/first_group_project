@@ -12,13 +12,16 @@ class Quote extends React.Component {
 
     componentDidMount() {
         if (!localStorage.getItem('quoteList')) {
+            console.log(1)
             axios.get('https://type.fit/api/quotes')
             .then(response => {
+                console.log(1.5)
                 localStorage.setItem('quoteList', JSON.stringify(response.data));
                 console.log('getting')
                 this.getQuote();
-            });
+            },(error) =>{console.log(error);});
         } else {
+            console.log(2)
             this.getQuote();
         }
     }
