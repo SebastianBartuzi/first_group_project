@@ -32,10 +32,11 @@ const ChangeMailRequestPage = ({match}) =>{
                 <h1 class="content-title">Change Email</h1>
                 {error && <p class="error-message">{error}</p>}
                 {success && <p class="success-message">{success}</p>}
+                <br></br>
                 <input
                     type="text"
                     required
-                    placeholder = "Email"
+                    placeholder = "Email:"
                     value = {email}
                     onChange = {(e) => setEmail(e.target.value)}
                     class="text-input"
