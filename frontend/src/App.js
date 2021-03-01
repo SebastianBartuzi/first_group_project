@@ -20,6 +20,7 @@ import CatGenerator from "./Components/Pages/catGenerator";
 import WeeklyPoll from "./Components/Pages/weeklyPollPage";
 import Resources from "./Components/Pages/resources";
 import JokeGenerator from "./Components/Pages/jokePage";
+import Quiz from "./Components/Pages/quizPage";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
             <Route exact path="/catgenerator" component={CatGenerator}/>
             <Route exact path="/resources" component={Resources}/>
             <Route exact path="/jokes" component={JokeGenerator}/>
+            <Route exact path="/quizzes" component={Quiz}/>
           </Switch>
         </Router>
       </div>
