@@ -4,7 +4,7 @@
   clear: both;
 }
 .column {
-  float: right;
+  float: left;
   text-align: center;
   padding: 1px;
 }
@@ -14,7 +14,6 @@
   font-size: 25px;
   font-weight: bold;
   color: black;
-  text-align: center;
 }
 
 .right {
@@ -46,8 +45,9 @@
 .profile-text {
   width: auto;
   text-align: center;
-  padding: 15px;
   font-family: "Roboto";
+  margin-left: 15px;
+  padding: 7px;
 }
 
 .profile-button {
