@@ -14,7 +14,7 @@ const InspirobotGen = () =>{
         <div class="content-box">
             <InspirobotImage/>
             <button onClick = {refreshPage} class="button" style={{marginTop: "1em"}}>Next Wisdom</button>
-            <a href='https://inspirobot.me/'>Credit belongs to inspirobot.me</a>
+            <p style={{textAlign: "center", marginTop: "1em"}}>Credits to <a href='https://inspirobot.me/'>inspirobot.me</a></p>
         </div>
     )
 }
