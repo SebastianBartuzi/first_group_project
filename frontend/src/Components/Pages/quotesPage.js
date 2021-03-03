@@ -11,11 +11,15 @@ const QuotesPage = () =>{
         window.location.reload(false); 
     }
     
+    function goTo() {
+        window.location.href='/inspiroquotes';
+    }
     
     return (
         <div class="content-box">
             <Quote/>
             <button onClick = {refreshPage} className="button" style={{marginTop: "1em"}}>Next Quote</button>
+            <button onClick={goTo} className="button" style={{marginTop: "1em"}}>Switch to Inspirobot</button>
         </div>
     )
 }
