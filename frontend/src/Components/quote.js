@@ -6,40 +6,50 @@ class Quote extends React.Component {
         super();
         this.state = {
             quote : "",
-            author : ""
+            author: "",
+            flaggedTags : ["attitude", "marriage", "medical", "mom", "morning", "movies", "music", "parenting", "patriotism"]
         }
+
     }
 
+   
+
+    fetchQuote() {
+        axios.get("https://goquotes-api.herokuapp.com/api/v1/random?count=1")
+        .then(response => {
+            if (this.state.flaggedTags.includes(response.data.quotes[0].tag ) || response.data.quotes[0].text.length>150 || response.data.quotes[0].text.includes("God") || response.data.quotes[0].text.includes("Boxing")){                
+                this.fetchQuote();
+
+            }
+            
+            else{
+                this.setState({quote: '"' + response.data.quotes[0].text +'"'});
+                this.setState({author: '- ' + response.data.quotes[0].author});
+                console.log(response.data.quotes[0].tag);
+                console.log(response.data.quotes[0].text.length)
+            }
+
+            
+        });
+    }
+    
     componentDidMount() {
-        if (!localStorage.getItem('quoteList')) {
-            console.log(1)
-            axios.get('https://type.fit/api/quotes')
-            .then(response => {
-                console.log(1.5)
-                localStorage.setItem('quoteList', JSON.stringify(response.data));
-                console.log('getting')
-                this.getQuote();
-            },(error) =>{console.log(error);});
-        } else {
-            console.log(2)
-            this.getQuote();
-        }
+        this.fetchQuote()
     }
 
-    getQuote() {
-        var obj = JSON.parse(localStorage.getItem('quoteList'))[Math.floor(Math.random() * JSON.parse(localStorage.getItem('quoteList')).length)];
-        this.setState({quote: obj.text});
-        this.setState({author: obj.author});
-    }
+
+
+  
+   
 
     render() {
         return (
             <div>
-            <p>{this.state.quote}</p>
-            <p>{this.state.author}</p>
+                <p className = "setup">{this.state.quote}</p>
+                <p className = "setup">{this.state.author}</p>
+
             </div>
         )
     }
 }
-
 export default Quote;

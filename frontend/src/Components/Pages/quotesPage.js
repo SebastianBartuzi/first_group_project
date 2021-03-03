@@ -2,6 +2,8 @@ import axios from 'axios'
 import {useState} from 'react'
 import Quote from '../quote.js';
 import "../../Styles/form.css";
+import "../../Styles/jokes.css";
+
 
 const QuotesPage = () =>{
 

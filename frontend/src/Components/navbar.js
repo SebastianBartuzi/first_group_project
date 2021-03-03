@@ -22,7 +22,7 @@ const navbar = () =>
                     <NavDropdown.Item as={Link} to="/">Quizzes</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/">Minigames</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/jokes">Jokes</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/">Quotes</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/quotes">Quotes</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/">Daily Poll</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/resources">Mental Health Resources</NavDropdown.Item>
                 </NavDropdown>
