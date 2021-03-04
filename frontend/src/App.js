@@ -20,6 +20,8 @@ import CatGenerator from "./Components/Pages/catGenerator";
 import WeeklyPoll from "./Components/Pages/weeklyPollPage";
 import Resources from "./Components/Pages/resources";
 import JokeGenerator from "./Components/Pages/jokePage";
+import QuotesPage from "./Components/Pages/quotesPage";
+import InspirobotGen from "./Components/Pages/inspirobotPage";
 
 function App() {
   return (
@@ -43,6 +45,8 @@ function App() {
             <Route exact path="/catgenerator" component={CatGenerator}/>
             <Route exact path="/resources" component={Resources}/>
             <Route exact path="/jokes" component={JokeGenerator}/>
+            <Route exact path="/quotes" component={QuotesPage}/>
+            <Route exact path="/inspiroquotes" component={InspirobotGen}/>
           </Switch>
         </Router>
       </div>
