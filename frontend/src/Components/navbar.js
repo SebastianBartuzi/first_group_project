@@ -25,6 +25,7 @@ const navbar = () =>
                     <NavDropdown.Item as={Link} to="/quotes">Quotes</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/weeklypoll">Weekly Poll</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/resources">Mental Health Resources</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/riddle">Riddle</NavDropdown.Item>
                 </NavDropdown>
 
                 <Nav.Link href="#" style={{marginLeft: "15px"}}>Favourites</Nav.Link>
