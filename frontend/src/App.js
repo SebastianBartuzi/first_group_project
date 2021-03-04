@@ -29,7 +29,7 @@ function App() {
         <Router>
         <Navbar/>
           <Switch>
-            <PrivateRoute exact path="/private" component={privatePage}/>
+            <PrivateRoute exact path="/profile" component={privatePage}/>
             <PrivateRoute exact path="/moodtracker" component={MoodTrackerPage}/>
             <Route exact path="/weeklypoll" component={WeeklyPoll}/>
 

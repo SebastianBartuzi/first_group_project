@@ -33,7 +33,7 @@ const navbar = () =>
             <ul className="navbar-nav mr-auto" style={{position: 'absolute', right: 50}}>
                 {localStorage.getItem("authToken")
                  ? <NavDropdown title="Profile" style={{marginLeft: "15px"}}>
-                        <NavDropdown.Item as={Link} to="/private">Edit Profile</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/profile">Edit Profile</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to="/moodtracker">Mood Tracker</NavDropdown.Item>
                 </NavDropdown>
                  : <><Nav.Link as={Link} to="/login" className="nav-item mr-3">Login</Nav.Link>

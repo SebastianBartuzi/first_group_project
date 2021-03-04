@@ -27,14 +27,13 @@ const DeletePasswordPage = () =>{
     };
 
     return (
-        <div>
+        <div class="content-box">
             <form onSubmit={onDeleteAccount} >
-                <h1>Delete Account</h1>
+                <h1 class="content-title">Delete Account</h1>
                 {error && <span> {error} </span>}
                 {succes && <span> {succes} </span>}
-                <p>Please enter your username</p>
                 <br/>
-                <label>Username: </label>
+                <span style={{fontSize:"20px", padding:"5px"}}>Username: </span>
                 <input
                     type="test"
                     required
@@ -42,7 +41,7 @@ const DeletePasswordPage = () =>{
                     value = {username}
                     onChange = {(e) => setUsername(e.target.value)}
                 />
-                <button type="submit">Send E-mail</button>
+                <button type="submit" class="button" style={{marginTop: "1em"}}>Send E-mail</button>
             </form>
         </div>
     )
