@@ -17,6 +17,7 @@ import ChangeMailRequestPage from "./Components/Pages/changeMailRequestPage";
 import LandingPage from "./Components/Pages/landingPage";
 import MoodTrackerPage from "./Components/Pages/moodTrackerPage";
 import CatGenerator from "./Components/Pages/catGenerator";
+import WeeklyPoll from "./Components/Pages/weeklyPollPage";
 import Resources from "./Components/Pages/resources";
 import JokeGenerator from "./Components/Pages/jokePage";
 import QuotesPage from "./Components/Pages/quotesPage";
@@ -29,7 +30,8 @@ function App() {
         <Navbar/>
           <Switch>
             <PrivateRoute exact path="/private" component={privatePage}/>
-            <Route exact path="/moodtracker" component={MoodTrackerPage}/>
+            <PrivateRoute exact path="/moodtracker" component={MoodTrackerPage}/>
+            <Route exact path="/weeklypoll" component={WeeklyPoll}/>
 
 
             <Route exact path="/" component={LandingPage}/>
