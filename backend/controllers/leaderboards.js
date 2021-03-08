@@ -2,11 +2,22 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/UserModel')
 const Leaderboards = require('../models/Leaderboards')
 
+exports.getAllScores = async (req, res, next) => {
+    //const { category } = req.body;
+    const scoresList = await Leaderboards.find({});
+    console.log(scoresList);
+
+    var allList = [];
+    scoresList.Array.forEach(element => {
+        var item = element.scores;
+        allList.push(item);
+    });
+    res.status(200).json({allList});
+
+}
+
 exports.getLeaderboards = async (req, res, next) => {
-    const response = {
-        "aa": "Aa",
-        "vb": "b"
-    }
+   
     const { token } = req.body;
     if(!token)
         res.status(400).json({"error": "Something went wrong!"})
