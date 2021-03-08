@@ -5,11 +5,10 @@ const Leaderboards = require('../models/Leaderboards')
 exports.getAllScores = async (req, res, next) => {
     //const { category } = req.body;
     const scoresList = await Leaderboards.find({});
-    console.log(scoresList);
 
     var allList = [];
-    scoresList.Array.forEach(element => {
-        var item = element.scores;
+    scoresList.forEach(element => {
+        var item = element.score;
         allList.push(item);
     });
     res.status(200).json({allList});
