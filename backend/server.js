@@ -43,3 +43,4 @@ app.use("/api/moodcalendar" ,require('./routes/MoodCalendar'));
 app.use("/api/polls" ,require('./routes/Polls'));
 app.use("/api/riddle" ,require('./routes/Riddle'));
 app.use("/api/credentials", require('./routes/Credentials'));
+app.use("/api/leaderboards", require('./routes/Leaderboards'));
