@@ -7,7 +7,55 @@ exports.getLeaderboards = async (req, res, next) => {
         "aa": "Aa",
         "vb": "b"
     }
-    res.status(200).json({response});
+    const { token } = req.body;
+    if(!token)
+        res.status(400).json({"error": "Something went wrong!"})
+
+    jwt.verify(token, process.env.JWT_SECRET, async function(err, decodedToken){
+        if(err){
+            return res.status(400).json({error: "Expired Link"});
+        }
+        const { id } = decodedToken;
+        console.log(id);
+    
+        const userExists = await User.findOne({_id: id});
+        if(!userExists)
+            return res.status(400).json({error: "User does not exist!"});
+        console.log(userExists)
+    
+        try{
+            const leaderboardsExists = await Leaderboards.findOne({userID: id})
+            if(!leaderboardsExists){
+                try{
+                    var scores = {
+                        "Books": 0,
+                        "Gaming": 0
+                    };
+
+                    const leaderboards = await Leaderboards.create({
+                    "userID": id,
+                    "score": scores
+                });
+                res.status(200).json({scores});
+            }catch(error){
+                res.status(400).json({error: error.message});
+            }
+            }else{
+                try{
+                    const scores = leaderboardsExists.score;
+                    res.status(200).json({scores});
+                }catch(error){
+                    res.status(400).json({error: error.message});
+                }
+            }
+
+            }catch(error){
+                res.status(400).json({error: error.message});
+            }
+
+    });
+
+    
 } 
 
 exports.updateLeaderboards = async (req, res, next) => {
