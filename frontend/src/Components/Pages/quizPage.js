@@ -56,6 +56,7 @@ class Quiz extends React.Component {
   }
 
   generateAnswers(i) {
+    console.log(this.state.quest[this.state.questionNumber - 1].question)
     if (this.state.quest[this.state.questionNumber - 1].correct_answer == undefined){
       return
     }
@@ -78,6 +79,7 @@ class Quiz extends React.Component {
   }
 
   startQuiz(category) {
+
     if(this.state.mainPage) {
       this.setState({mainPage: false});
       this.setState({quizInProgress: true});
@@ -283,7 +285,7 @@ class Quiz extends React.Component {
       {this.state.quizInProgress
       ? <span><p style={{"font-size": "60px", "font-family": "Lilita One"}}>{this.state.chosenCategory}{this.state.incorrectAnswers}</p>
       <p style={{"font-size": "40px", "font-family": "Lilita One"}}>Question {this.state.questionNumber}</p>
-      <p style={{"font-size": "25px", "font-family": "Lilita One"}}>{this.state.quest[this.state.questionNumber - 1].question}</p>
+      <p style={{"font-size": "25px", "font-family": "Lilita One"}}dangerouslySetInnerHTML={{__html:this.state.quest[this.state.questionNumber - 1].question}}></p>
       {this.generateAnswers(0)}<br />{this.generateAnswers(1)}<br />{this.generateAnswers(2)}<br />{this.generateAnswers(3)}</span> : true}
       {this.state.resultToShow
       ? <span><p style={{"font-size": "40px", "font-family": "Lilita One"}}>Congratulatons! Your score is {this.state.points}.</p>
