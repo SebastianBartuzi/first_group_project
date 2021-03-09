@@ -15,8 +15,9 @@ class Quiz extends React.Component {
           quest : ["", "", "", "", "", "", "", "", "", "", "", ""],
           incorrectAnswers : ["", "", ""],
           correctAnswerPos : 0,
-          points : 4400,
+          points : 0,
           strike : 1,
+          done: false,
       }
   }
 
@@ -28,52 +29,64 @@ class Quiz extends React.Component {
     this.setState({questionNumber: 0});
     this.setState({quest: ["", "", "", "", "", "", "", "", "", "", "", ""]});
     this.setState({correctAnswerPos: 0});
-    this.setState({points: 4400});
+    this.setState({points: 0});
     this.setState({strike: 1});
+    this.setState({done: false});
   }
 
   nextQuestion() {
+    document.getElementById("correctAns").style.backgroundColor = "#945bc9";
     if (this.state.questionNumber == 12) {
       this.setState({quizInProgress: false});
       this.setState({resultToShow: true});
+      this.setState({done: false});
     }
     else {
       this.setState({questionNumber: this.state.questionNumber + 1});
       this.setState({correctAnswerPos: Math.floor(Math.random() * 4)});
+      this.setState({done: false});
     }
   }
 
+  showCorrect() {
+    document.getElementById("correctAns").style.setProperty("background-color", "green", "important");
+  }
+
   addPoints() {
-    this.setState({points: this.state.points + (200 * this.state.strike)});
-    this.setState({strike: this.state.strike + 1});
-    this.nextQuestion();
+    if (!this.state.done){
+        this.setState({done: true});
+        this.setState({points: this.state.points + (100 * this.state.strike)});
+        this.setState({strike: this.state.strike + 1});
+        this.showCorrect();
+    }
   }
 
   subtractPoints() {
-    this.setState({points: this.state.points - 200});
-    this.setState({strike: 1});
-    this.nextQuestion();
+    if (!this.state.done){
+        this.setState({done: true});
+        this.setState({strike: 1});
+        this.showCorrect();
+    }
   }
 
   generateAnswers(i) {
-    console.log(this.state.quest[this.state.questionNumber - 1].question)
     if (this.state.quest[this.state.questionNumber - 1].correct_answer == undefined){
       return
     }
     if (i == this.state.correctAnswerPos) {
       return (
-        <button class="button" onClick={() => this.addPoints()}>{this.state.quest[this.state.questionNumber - 1].correct_answer}</button>
+        <button id="correctAns" class="button" onClick={() => this.addPoints()} dangerouslySetInnerHTML={{__html:this.state.quest[this.state.questionNumber - 1].correct_answer}}></button>
       )
       this.setState({correctAnswerPos: 4});
     }
     else if (i > this.state.correctAnswerPos) {
       return (
-        <button class="button" onClick={() => this.subtractPoints()}>{this.state.quest[this.state.questionNumber - 1].incorrect_answers[i-1]}</button>
+        <button class="button" onClick={() => this.subtractPoints()} dangerouslySetInnerHTML={{__html:this.state.quest[this.state.questionNumber - 1].incorrect_answers[i-1]}}></button>
       )
     }
     else {
       return (
-        <button class="button" onClick={() => this.subtractPoints()}>{this.state.quest[this.state.questionNumber - 1].incorrect_answers[i]}</button>
+        <button class="button" onClick={() => this.subtractPoints()} dangerouslySetInnerHTML={{__html:this.state.quest[this.state.questionNumber - 1].incorrect_answers[i]}}></button>
       )
     }
   }
@@ -156,7 +169,7 @@ class Quiz extends React.Component {
 
   render() {
       return (
-        <div className="centeredDiv" style={{"min-height": "100%", width: "100%", padding: "0px 0px"}}>
+        <div className={this.state.mainPage ? "centeredDiv" : "content-box"} style={this.state.mainPage ? {"min-height": "100%", width: "100%", padding: "0px 0px"} : {}}>
         {this.state.mainPage
         ? <span><p style={{"font-size": "60px", "font-family": "Lilita One"}}>Let's test your knowledge!</p>
               <table style={{width: "100%", "font-size": "20px", "font-family": "Roboto", "vertical-align": "middle"}}>
@@ -283,13 +296,14 @@ class Quiz extends React.Component {
         </span>
       : false}
       {this.state.quizInProgress
-      ? <span><p style={{"font-size": "60px", "font-family": "Lilita One"}}>{this.state.chosenCategory}{this.state.incorrectAnswers}</p>
-      <p style={{"font-size": "40px", "font-family": "Lilita One"}}>Question {this.state.questionNumber}</p>
-      <p style={{"font-size": "25px", "font-family": "Lilita One"}}dangerouslySetInnerHTML={{__html:this.state.quest[this.state.questionNumber - 1].question}}></p>
+      ? <span><p style={{"font-size": "60px", "font-family": "Lilita One", "text-align": "center"}}>{this.state.chosenCategory}{this.state.incorrectAnswers}</p>
+      <p style={{"font-size": "40px", "font-family": "Lilita One", "text-align": "center"}}>Question {this.state.questionNumber}</p>
+      <p style={{"font-size": "25px", "font-family": "Lilita One", "text-align": "center"}}dangerouslySetInnerHTML={{__html:this.state.quest[this.state.questionNumber - 1].question}}></p>
       {this.generateAnswers(0)}<br />{this.generateAnswers(1)}<br />{this.generateAnswers(2)}<br />{this.generateAnswers(3)}</span> : true}
       {this.state.resultToShow
-      ? <span><p style={{"font-size": "40px", "font-family": "Lilita One"}}>Congratulatons! Your score is {this.state.points}.</p>
+      ? <span><p style={{"font-size": "40px", "font-family": "Lilita One"}}>{this.state.points == 0 ? "Oh no!" : "Congratulations!"} Your score is {this.state.points}.</p>
       <button class="button" style={{marginTop: "1em"}} onClick={() => this.backToMenu()}>Main Menu</button></span> : true}
+      {this.state.done ? <button class="button" style={{marginTop: "2em"}} onClick={() => this.nextQuestion()}>Next Question</button> : true}
       </div>
     )
   }

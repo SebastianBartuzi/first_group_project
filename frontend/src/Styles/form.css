@@ -16,7 +16,7 @@
 }
 
 .button:hover {
-    background-color: #81007f;
+    background-color: #81007f !important;
 }
 
 .error-message {
