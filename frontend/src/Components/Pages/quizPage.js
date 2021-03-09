@@ -56,6 +56,9 @@ class Quiz extends React.Component {
   }
 
   generateAnswers(i) {
+    if (this.state.quest[this.state.questionNumber - 1].correct_answer == undefined){
+      return
+    }
     if (i == this.state.correctAnswerPos) {
       return (
         <button class="button" onClick={() => this.addPoints()}>{this.state.quest[this.state.questionNumber - 1].correct_answer}</button>
@@ -64,12 +67,12 @@ class Quiz extends React.Component {
     }
     else if (i > this.state.correctAnswerPos) {
       return (
-        <button class="button" onClick={() => this.subtractPoints()}>{this.state.quest[this.state.questionNumber - 1].incorrect_answers}</button>
+        <button class="button" onClick={() => this.subtractPoints()}>{this.state.quest[this.state.questionNumber - 1].incorrect_answers[i-1]}</button>
       )
     }
     else {
       return (
-        <button class="button" onClick={() => this.subtractPoints()}>{this.state.quest[this.state.questionNumber - 1].incorrect_answers}</button>
+        <button class="button" onClick={() => this.subtractPoints()}>{this.state.quest[this.state.questionNumber - 1].incorrect_answers[i]}</button>
       )
     }
   }
