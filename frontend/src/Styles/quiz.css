@@ -1,0 +1,51 @@
+.titlePage {
+    text-align: center;
+    font-size: 80px;
+    font-family: "Lilita One";
+    color: #945bc9;
+    background-color: #fadb5d;
+    width: 45%;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 15px;
+  }
+
+table {
+    width: "100%"; 
+    font-size: "20px"; 
+    font-family: "Roboto"; 
+    vertical-align: "middle";
+}
+
+.rowTitle {
+    background-color: "#e697b5";
+    height: "100px";
+    font-family: "Lilita One"; 
+    font-size: "30px";
+    margin: 4em;
+}
+
+
+.altRow {
+    background-color: #fab725;
+    color: #fab725;
+}
+
+.box {
+    margin-top: 5em;
+    padding: 20px;
+    width: 75%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fadb5d;
+    text-align: center;
+    grid-area: "box";
+    border-radius: 15px;
+  }
+
+.mainPage {
+    min-height: "100%";
+    width: "100%"; 
+    padding: "0px 0px";
+}

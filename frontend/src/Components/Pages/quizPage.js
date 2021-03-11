@@ -1,4 +1,5 @@
 import "../../Styles/form.css";
+import "../../Styles/quiz.css";
 import React from "react";
 import axios from 'axios';
 
@@ -317,130 +318,166 @@ async getTotalScores(){
 
   render() {
       return (
-        <div className={this.state.mainPage ? "centeredDiv" : "content-box"} style={this.state.mainPage ? {"min-height": "100%", width: "100%", padding: "0px 0px"} : {}}>
+        <div className={this.state.mainPage ? "mainPage" : "content-box"}>
         {this.state.mainPage
-        ? <span><p style={{"font-size": "60px", "font-family": "Lilita One"}}>Let's test your knowledge!</p>
-              <table style={{width: "100%", "font-size": "20px", "font-family": "Roboto", "vertical-align": "middle"}}>
-              <tr style={{"background-color": "#e697b5", height: "60px", "font-family": "Lilita One", "font-size": "30px"}}>
-                <th><p>Category</p></th>
-                <th><p>Your best score</p></th>
-                <th><p>#1</p></th>
-                <th><p>#2</p></th>
-                <th><p>#3</p></th>
-                <th></th>
-              </tr><tr>
-                <td><p>General Knowledge</p></td>
-                <td><p>{Object.values(this.state.myScore)[0]["General Knowledge"]}</p></td>
-                <td><p>{this.state.bestScore["General Knowledge"][0]}</p></td>
-                <td><p>{this.state.bestScore["General Knowledge"][1]}</p></td>
-                <td><p>{this.state.bestScore["General Knowledge"][2]}</p></td>
-                <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("General Knowledge")}>Start now!</button></td>
-              </tr><tr style={{"background-color": "#e697b5"}}>
-                <td><p>Books</p></td>
-                <td><p>{Object.values(this.state.myScore)[0]["Books"]}</p></td>
-                <td><p>{this.state.bestScore["Books"][0]}</p></td>
-                <td><p>{this.state.bestScore["Books"][1]}</p></td>
-                <td><p>{this.state.bestScore["Books"][2]}</p></td>
-                <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Books")}>Start now!</button></td>
-              </tr><tr>
-                <td><p>Film</p></td>
-                <td><p>{Object.values(this.state.myScore)[0]["Film"]}</p></td>
-                <td><p>{this.state.bestScore["Film"][0]}</p></td>
-                <td><p>{this.state.bestScore["Film"][1]}</p></td>
-                <td><p>{this.state.bestScore["Film"][2]}</p></td>
-                <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Film")}>Start now!</button></td>
-              </tr><tr style={{"background-color": "#e697b5"}}>
-                <td><p>Music</p></td>
-                <td><p>{Object.values(this.state.myScore)[0]["Music"]}</p></td>
-                <td><p>{this.state.bestScore["Music"][0]}</p></td>
-                <td><p>{this.state.bestScore["Music"][1]}</p></td>
-                <td><p>{this.state.bestScore["Music"][2]}</p></td>
-                <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Music")}>Start now!</button></td>
-              </tr><tr>
-                <td><p>Television</p></td>
-                <td><p>{Object.values(this.state.myScore)[0]["Television"]}</p></td>
-                <td><p>{this.state.bestScore["Television"][0]}</p></td>
-                <td><p>{this.state.bestScore["Television"][1]}</p></td>
-                <td><p>{this.state.bestScore["Television"][2]}</p></td>
-                <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Television")}>Start now!</button></td>
-              </tr><tr style={{"background-color": "#e697b5"}}>
-                <td><p>Video Games</p></td>
-                <td><p>{Object.values(this.state.myScore)[0]["Video Games"]}</p></td>
-                <td><p>{this.state.bestScore["Video Games"][0]}</p></td>
-                <td><p>{this.state.bestScore["Video Games"][1]}</p></td>
-                <td><p>{this.state.bestScore["Video Games"][2]}</p></td>
-                <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Video Games")}>Start now!</button></td>
-              </tr><tr>
-                <td><p>Science</p></td>
-                <td><p>{Object.values(this.state.myScore)[0]["Science"]}</p></td>
-                <td><p>{this.state.bestScore["Science"][0]}</p></td>
-                <td><p>{this.state.bestScore["Science"][1]}</p></td>
-                <td><p>{this.state.bestScore["Science"][2]}</p></td>
-                <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Science")}>Start now!</button></td>
-              </tr><tr style={{"background-color": "#e697b5"}}>
-                <td><p>Computer Science</p></td>
-                <td><p>{Object.values(this.state.myScore)[0]["Computer Science"]}</p></td>
-                <td><p>{this.state.bestScore["Computer Science"][0]}</p></td>
-                <td><p>{this.state.bestScore["Computer Science"][1]}</p></td>
-                <td><p>{this.state.bestScore["Computer Science"][2]}</p></td>
-                <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Computer Science")}>Start now!</button></td>
-              </tr><tr>
-                <td><p>Mathematics</p></td>
-                <td><p>{Object.values(this.state.myScore)[0]["Mathematics"]}</p></td>
-                <td><p>{this.state.bestScore["Mathematics"][0]}</p></td>
-                <td><p>{this.state.bestScore["Mathematics"][1]}</p></td>
-                <td><p>{this.state.bestScore["Mathematics"][2]}</p></td>
-                <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Mathematics")}>Start now!</button></td>
-              </tr><tr style={{"background-color": "#e697b5"}}>
-                <td><p>Sports</p></td>
-                <td><p>{Object.values(this.state.myScore)[0]["Sports"]}</p></td>
-                <td><p>{this.state.bestScore["Sports"][0]}</p></td>
-                <td><p>{this.state.bestScore["Sports"][1]}</p></td>
-                <td><p>{this.state.bestScore["Sports"][2]}</p></td>
-                <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Sports")}>Start now!</button></td>
-              </tr><tr>
-                <td><p>Geography</p></td>
-                <td><p>{Object.values(this.state.myScore)[0]["Geography"]}</p></td>
-                <td><p>{this.state.bestScore["Geography"][0]}</p></td>
-                <td><p>{this.state.bestScore["Geography"][1]}</p></td>
-                <td><p>{this.state.bestScore["Geography"][2]}</p></td>
-                <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Geography")}>Start now!</button></td>
-              </tr><tr style={{"background-color": "#e697b5"}}>
-                <td><p>History</p></td>
-                <td><p>{Object.values(this.state.myScore)[0]["History"]}</p></td>
-                <td><p>{this.state.bestScore["History"][0]}</p></td>
-                <td><p>{this.state.bestScore["History"][1]}</p></td>
-                <td><p>{this.state.bestScore["History"][2]}</p></td>
-                <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("History")}>Start now!</button></td>
-              </tr><tr>
-                <td><p>Politics</p></td>
-                <td><p>{Object.values(this.state.myScore)[0]["Politics"]}</p></td>
-                <td><p>{this.state.bestScore["Politics"][0]}</p></td>
-                <td><p>{this.state.bestScore["Politics"][1]}</p></td>
-                <td><p>{this.state.bestScore["Politics"][2]}</p></td>
-                <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Politics")}>Start now!</button></td>
-              </tr><tr style={{"background-color": "#e697b5"}}>
-                <td><p>Art</p></td>
-                <td><p>{Object.values(this.state.myScore)[0]["Art"]}</p></td>
-                <td><p>{this.state.bestScore["Art"][0]}</p></td>
-                <td><p>{this.state.bestScore["Art"][1]}</p></td>
-                <td><p>{this.state.bestScore["Art"][2]}</p></td>
-                <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Art")}>Start now!</button></td>
-              </tr><tr>
-                <td><p>Celebrities</p></td>
-                <td><p>{Object.values(this.state.myScore)[0]["Celebrities"]}</p></td>
-                <td><p>{this.state.bestScore["Celebrities"][0]}</p></td>
-                <td><p>{this.state.bestScore["Celebrities"][1]}</p></td>
-                <td><p>{this.state.bestScore["Celebrities"][2]}</p></td>
-                <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Celebrities")}>Start now!</button></td>
-              </tr><tr style={{"background-color": "#e697b5"}}>
-                <td><p>Animals</p></td>
-                <td><p>{Object.values(this.state.myScore)[0]["Animals"]}</p></td>
-                <td><p>{this.state.bestScore["Animals"][0]}</p></td>
-                <td><p>{this.state.bestScore["Animals"][1]}</p></td>
-                <td><p>{this.state.bestScore["Animals"][2]}</p></td>
-                <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Animals")}>Start now!</button></td>
-              </tr></table>
+        ? <span><p className="titlePage">Let's test your knowledge!</p>
+        <div >
+              <table className="box">
+                <tr className="rowTitle">
+                  <th><p>Category</p></th>
+                  <th><p>Your best score</p></th>
+                  <th><p>#1</p></th>
+                  <th><p>#2</p></th>
+                  <th><p>#3</p></th>
+                  <th></th>
+                </tr>
+                
+                <tr>
+                  <td><p>General Knowledge</p></td>
+                  <td><p>{Object.values(this.state.myScore)[0]["General Knowledge"]}</p></td>
+                  <td><p>{this.state.bestScore["General Knowledge"][0]}</p></td>
+                  <td><p>{this.state.bestScore["General Knowledge"][1]}</p></td>
+                  <td><p>{this.state.bestScore["General Knowledge"][2]}</p></td>
+                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("General Knowledge")}>Start now!</button></td>
+                </tr>
+                
+                <tr>
+                  <td><p>Books</p></td>
+                  <td><p>{Object.values(this.state.myScore)[0]["Books"]}</p></td>
+                  <td><p>{this.state.bestScore["Books"][0]}</p></td>
+                  <td><p>{this.state.bestScore["Books"][1]}</p></td>
+                  <td><p>{this.state.bestScore["Books"][2]}</p></td>
+                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Books")}>Start now!</button></td>
+                </tr>
+                
+                <tr>
+                  <td><p>Film</p></td>
+                  <td><p>{Object.values(this.state.myScore)[0]["Film"]}</p></td>
+                  <td><p>{this.state.bestScore["Film"][0]}</p></td>
+                  <td><p>{this.state.bestScore["Film"][1]}</p></td>
+                  <td><p>{this.state.bestScore["Film"][2]}</p></td>
+                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Film")}>Start now!</button></td>
+                </tr>
+                
+                <tr>
+                  <td><p>Music</p></td>
+                  <td><p>{Object.values(this.state.myScore)[0]["Music"]}</p></td>
+                  <td><p>{this.state.bestScore["Music"][0]}</p></td>
+                  <td><p>{this.state.bestScore["Music"][1]}</p></td>
+                  <td><p>{this.state.bestScore["Music"][2]}</p></td>
+                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Music")}>Start now!</button></td>
+                </tr>
+                
+                <tr>
+                  <td><p>Television</p></td>
+                  <td><p>{Object.values(this.state.myScore)[0]["Television"]}</p></td>
+                  <td><p>{this.state.bestScore["Television"][0]}</p></td>
+                  <td><p>{this.state.bestScore["Television"][1]}</p></td>
+                  <td><p>{this.state.bestScore["Television"][2]}</p></td>
+                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Television")}>Start now!</button></td>
+                </tr>
+                
+                <tr>
+                  <td><p>Video Games</p></td>
+                  <td><p>{Object.values(this.state.myScore)[0]["Video Games"]}</p></td>
+                  <td><p>{this.state.bestScore["Video Games"][0]}</p></td>
+                  <td><p>{this.state.bestScore["Video Games"][1]}</p></td>
+                  <td><p>{this.state.bestScore["Video Games"][2]}</p></td>
+                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Video Games")}>Start now!</button></td>
+                </tr>
+                
+                <tr>
+                  <td><p>Science</p></td>
+                  <td><p>{Object.values(this.state.myScore)[0]["Science"]}</p></td>
+                  <td><p>{this.state.bestScore["Science"][0]}</p></td>
+                  <td><p>{this.state.bestScore["Science"][1]}</p></td>
+                  <td><p>{this.state.bestScore["Science"][2]}</p></td>
+                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Science")}>Start now!</button></td>
+                </tr>
+                
+                <tr>
+                  <td><p>Computer Science</p></td>
+                  <td><p>{Object.values(this.state.myScore)[0]["Computer Science"]}</p></td>
+                  <td><p>{this.state.bestScore["Computer Science"][0]}</p></td>
+                  <td><p>{this.state.bestScore["Computer Science"][1]}</p></td>
+                  <td><p>{this.state.bestScore["Computer Science"][2]}</p></td>
+                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Computer Science")}>Start now!</button></td>
+                </tr>
+                
+                <tr>
+                  <td><p>Mathematics</p></td>
+                  <td><p>{Object.values(this.state.myScore)[0]["Mathematics"]}</p></td>
+                  <td><p>{this.state.bestScore["Mathematics"][0]}</p></td>
+                  <td><p>{this.state.bestScore["Mathematics"][1]}</p></td>
+                  <td><p>{this.state.bestScore["Mathematics"][2]}</p></td>
+                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Mathematics")}>Start now!</button></td>
+                </tr>
+                
+                <tr>
+                  <td><p>Sports</p></td>
+                  <td><p>{Object.values(this.state.myScore)[0]["Sports"]}</p></td>
+                  <td><p>{this.state.bestScore["Sports"][0]}</p></td>
+                  <td><p>{this.state.bestScore["Sports"][1]}</p></td>
+                  <td><p>{this.state.bestScore["Sports"][2]}</p></td>
+                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Sports")}>Start now!</button></td>
+                </tr>
+                
+                <tr>
+                  <td><p>Geography</p></td>
+                  <td><p>{Object.values(this.state.myScore)[0]["Geography"]}</p></td>
+                  <td><p>{this.state.bestScore["Geography"][0]}</p></td>
+                  <td><p>{this.state.bestScore["Geography"][1]}</p></td>
+                  <td><p>{this.state.bestScore["Geography"][2]}</p></td>
+                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Geography")}>Start now!</button></td>
+                </tr>
+                
+                <tr>
+                  <td><p>History</p></td>
+                  <td><p>{Object.values(this.state.myScore)[0]["History"]}</p></td>
+                  <td><p>{this.state.bestScore["History"][0]}</p></td>
+                  <td><p>{this.state.bestScore["History"][1]}</p></td>
+                  <td><p>{this.state.bestScore["History"][2]}</p></td>
+                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("History")}>Start now!</button></td>
+                </tr>
+                
+                <tr>
+                  <td><p>Politics</p></td>
+                  <td><p>{Object.values(this.state.myScore)[0]["Politics"]}</p></td>
+                  <td><p>{this.state.bestScore["Politics"][0]}</p></td>
+                  <td><p>{this.state.bestScore["Politics"][1]}</p></td>
+                  <td><p>{this.state.bestScore["Politics"][2]}</p></td>
+                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Politics")}>Start now!</button></td>
+                </tr>
+                
+                <tr>
+                  <td><p>Art</p></td>
+                  <td><p>{Object.values(this.state.myScore)[0]["Art"]}</p></td>
+                  <td><p>{this.state.bestScore["Art"][0]}</p></td>
+                  <td><p>{this.state.bestScore["Art"][1]}</p></td>
+                  <td><p>{this.state.bestScore["Art"][2]}</p></td>
+                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Art")}>Start now!</button></td>
+                </tr>
+                
+                <tr>
+                  <td><p>Celebrities</p></td>
+                  <td><p>{Object.values(this.state.myScore)[0]["Celebrities"]}</p></td>
+                  <td><p>{this.state.bestScore["Celebrities"][0]}</p></td>
+                  <td><p>{this.state.bestScore["Celebrities"][1]}</p></td>
+                  <td><p>{this.state.bestScore["Celebrities"][2]}</p></td>
+                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Celebrities")}>Start now!</button></td>
+                </tr>
+                
+                <tr>
+                  <td><p>Animals</p></td>
+                  <td><p>{Object.values(this.state.myScore)[0]["Animals"]}</p></td>
+                  <td><p>{this.state.bestScore["Animals"][0]}</p></td>
+                  <td><p>{this.state.bestScore["Animals"][1]}</p></td>
+                  <td><p>{this.state.bestScore["Animals"][2]}</p></td>
+                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Animals")}>Start now!</button></td>
+                </tr>
+                
+              </table>
+              </div>
         </span>
       : false}
       {this.state.quizInProgress
