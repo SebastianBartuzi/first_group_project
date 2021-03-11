@@ -36,6 +36,25 @@ class Quiz extends React.Component {
             "Animals": 0,
             "General Knowledge": 0
           },
+          bestScore: {
+            "Books": [0,0,0],
+            "Film": [0,0,0],
+            "Music": [0,0,0],
+            "Television": [0,0,0],
+            "Video Games": [0,0,0],
+            "Science": [0,0,0],
+            "Computer Science": [0,0,0],
+            "Mathematics": [0,0,0],
+            "Sports": [0,0,0],
+            "Geography": [0,0,0],
+            "History": [0,0,0],
+            "Politics": [0,0,0],
+            "Art": [0,0,0],
+            "Celebrities": [0,0,0],
+            "Animals": [0,0,0],
+            "General Knowledge": [0,0,0]
+          },
+          
         totalScore: []
       }
   }
@@ -55,6 +74,8 @@ class Quiz extends React.Component {
     this.setState({points: 0});
     this.setState({strike: 1});
     this.setState({done: false});
+    this.getMyScore();
+    this.getTotalScores();
   }
 
   
@@ -114,18 +135,64 @@ async getTotalScores(){
     header: {
         "Content-type": "application/json"
     }
-}
+  }
 
-try{
-    await axios.post("/api/leaderboards/getallscores", {}, config)
-    .then(response => this.setState({totalScore: response.data}))
-    
-    .catch(error => console.log(error));
-    console.log(this.state.totalScore)
+  try{
+      await axios.post("/api/leaderboards/getallscores", {}, config)
+      .then(response => this.setState({totalScore: response.data}))
+      
+      .catch(error => console.log(error));
+      //console.log(this.state.totalScore)
+      //console.log(Object.values(this.state.totalScore)[0])
+      var list1 = Object.values(this.state.totalScore)[0]
+      var bestScoreTemp = {
+        "Books": [0,0,0],
+        "Film": [0,0,0],
+        "Music": [0,0,0],
+        "Television": [0,0,0],
+        "Video Games": [0,0,0],
+        "Science": [0,0,0],
+        "Computer Science": [0,0,0],
+        "Mathematics": [0,0,0],
+        "Sports": [0,0,0],
+        "Geography": [0,0,0],
+        "History": [0,0,0],
+        "Politics": [0,0,0],
+        "Art": [0,0,0],
+        "Celebrities": [0,0,0],
+        "Animals": [0,0,0],
+        "General Knowledge": [0,0,0]
+      }
+      //console.log(this.state.bestScore)
+      list1.forEach(element => {
+        //console.log(element)
+        //console.log(this.state.bestScore)
+        Object.keys(element).forEach(function(key) {
+          if(element[key]>bestScoreTemp[key][0]) {
+            bestScoreTemp[key][2] = bestScoreTemp[key][1]
+            bestScoreTemp[key][1] = bestScoreTemp[key][0]
+            bestScoreTemp[key][0] = element[key];
+            } else if(element[key]>bestScoreTemp[key][1]){
+              bestScoreTemp[key][2] = bestScoreTemp[key][1]
+              bestScoreTemp[key][1] = element[key];
+            } else if(element[key]>bestScoreTemp[key][2]){
+              bestScoreTemp[key][2] = element[key];
+            }
 
-}catch(error){
-    console.log(error);
-}
+
+          });
+
+      });
+      //console.log(this.state.bestScore)
+      this.state.bestScore = bestScoreTemp;
+      //console.log(this.state.bestScore)
+
+
+
+
+  }catch(error){
+      console.log(error);
+  }
 }
 
 
@@ -264,115 +331,115 @@ try{
               </tr><tr>
                 <td><p>General Knowledge</p></td>
                 <td><p>{Object.values(this.state.myScore)[0]["General Knowledge"]}</p></td>
-                <td><p>24646<br />User1</p></td>
-                <td><p>14678<br />User2</p></td>
-                <td><p>10564<br />User3</p></td>
+                <td><p>{this.state.bestScore["General Knowledge"][0]}</p></td>
+                <td><p>{this.state.bestScore["General Knowledge"][1]}</p></td>
+                <td><p>{this.state.bestScore["General Knowledge"][2]}</p></td>
                 <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("General Knowledge")}>Start now!</button></td>
               </tr><tr style={{"background-color": "#e697b5"}}>
                 <td><p>Books</p></td>
                 <td><p>{Object.values(this.state.myScore)[0]["Books"]}</p></td>
-                <td><p>24646<br />User1</p></td>
-                <td><p>14678<br />User2</p></td>
-                <td><p>10564<br />User3</p></td>
+                <td><p>{this.state.bestScore["Books"][0]}</p></td>
+                <td><p>{this.state.bestScore["Books"][1]}</p></td>
+                <td><p>{this.state.bestScore["Books"][2]}</p></td>
                 <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Books")}>Start now!</button></td>
               </tr><tr>
                 <td><p>Film</p></td>
                 <td><p>{Object.values(this.state.myScore)[0]["Film"]}</p></td>
-                <td><p>24646<br />User1</p></td>
-                <td><p>14678<br />User2</p></td>
-                <td><p>10564<br />User3</p></td>
+                <td><p>{this.state.bestScore["Film"][0]}</p></td>
+                <td><p>{this.state.bestScore["Film"][1]}</p></td>
+                <td><p>{this.state.bestScore["Film"][2]}</p></td>
                 <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Film")}>Start now!</button></td>
               </tr><tr style={{"background-color": "#e697b5"}}>
                 <td><p>Music</p></td>
                 <td><p>{Object.values(this.state.myScore)[0]["Music"]}</p></td>
-                <td><p>24646<br />User1</p></td>
-                <td><p>14678<br />User2</p></td>
-                <td><p>10564<br />User3</p></td>
+                <td><p>{this.state.bestScore["Music"][0]}</p></td>
+                <td><p>{this.state.bestScore["Music"][1]}</p></td>
+                <td><p>{this.state.bestScore["Music"][2]}</p></td>
                 <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Music")}>Start now!</button></td>
               </tr><tr>
                 <td><p>Television</p></td>
                 <td><p>{Object.values(this.state.myScore)[0]["Television"]}</p></td>
-                <td><p>24646<br />User1</p></td>
-                <td><p>14678<br />User2</p></td>
-                <td><p>10564<br />User3</p></td>
+                <td><p>{this.state.bestScore["Television"][0]}</p></td>
+                <td><p>{this.state.bestScore["Television"][1]}</p></td>
+                <td><p>{this.state.bestScore["Television"][2]}</p></td>
                 <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Television")}>Start now!</button></td>
               </tr><tr style={{"background-color": "#e697b5"}}>
                 <td><p>Video Games</p></td>
                 <td><p>{Object.values(this.state.myScore)[0]["Video Games"]}</p></td>
-                <td><p>24646<br />User1</p></td>
-                <td><p>14678<br />User2</p></td>
-                <td><p>10564<br />User3</p></td>
+                <td><p>{this.state.bestScore["Video Games"][0]}</p></td>
+                <td><p>{this.state.bestScore["Video Games"][1]}</p></td>
+                <td><p>{this.state.bestScore["Video Games"][2]}</p></td>
                 <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Video Games")}>Start now!</button></td>
               </tr><tr>
                 <td><p>Science</p></td>
                 <td><p>{Object.values(this.state.myScore)[0]["Science"]}</p></td>
-                <td><p>24646<br />User1</p></td>
-                <td><p>14678<br />User2</p></td>
-                <td><p>10564<br />User3</p></td>
+                <td><p>{this.state.bestScore["Science"][0]}</p></td>
+                <td><p>{this.state.bestScore["Science"][1]}</p></td>
+                <td><p>{this.state.bestScore["Science"][2]}</p></td>
                 <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Science")}>Start now!</button></td>
               </tr><tr style={{"background-color": "#e697b5"}}>
                 <td><p>Computer Science</p></td>
                 <td><p>{Object.values(this.state.myScore)[0]["Computer Science"]}</p></td>
-                <td><p>24646<br />User1</p></td>
-                <td><p>14678<br />User2</p></td>
-                <td><p>10564<br />User3</p></td>
+                <td><p>{this.state.bestScore["Computer Science"][0]}</p></td>
+                <td><p>{this.state.bestScore["Computer Science"][1]}</p></td>
+                <td><p>{this.state.bestScore["Computer Science"][2]}</p></td>
                 <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Computer Science")}>Start now!</button></td>
               </tr><tr>
                 <td><p>Mathematics</p></td>
                 <td><p>{Object.values(this.state.myScore)[0]["Mathematics"]}</p></td>
-                <td><p>24646<br />User1</p></td>
-                <td><p>14678<br />User2</p></td>
-                <td><p>10564<br />User3</p></td>
+                <td><p>{this.state.bestScore["Mathematics"][0]}</p></td>
+                <td><p>{this.state.bestScore["Mathematics"][1]}</p></td>
+                <td><p>{this.state.bestScore["Mathematics"][2]}</p></td>
                 <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Mathematics")}>Start now!</button></td>
               </tr><tr style={{"background-color": "#e697b5"}}>
                 <td><p>Sports</p></td>
                 <td><p>{Object.values(this.state.myScore)[0]["Sports"]}</p></td>
-                <td><p>24646<br />User1</p></td>
-                <td><p>14678<br />User2</p></td>
-                <td><p>10564<br />User3</p></td>
+                <td><p>{this.state.bestScore["Sports"][0]}</p></td>
+                <td><p>{this.state.bestScore["Sports"][1]}</p></td>
+                <td><p>{this.state.bestScore["Sports"][2]}</p></td>
                 <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Sports")}>Start now!</button></td>
               </tr><tr>
                 <td><p>Geography</p></td>
                 <td><p>{Object.values(this.state.myScore)[0]["Geography"]}</p></td>
-                <td><p>24646<br />User1</p></td>
-                <td><p>14678<br />User2</p></td>
-                <td><p>10564<br />User3</p></td>
+                <td><p>{this.state.bestScore["Geography"][0]}</p></td>
+                <td><p>{this.state.bestScore["Geography"][1]}</p></td>
+                <td><p>{this.state.bestScore["Geography"][2]}</p></td>
                 <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Geography")}>Start now!</button></td>
               </tr><tr style={{"background-color": "#e697b5"}}>
                 <td><p>History</p></td>
                 <td><p>{Object.values(this.state.myScore)[0]["History"]}</p></td>
-                <td><p>24646<br />User1</p></td>
-                <td><p>14678<br />User2</p></td>
-                <td><p>10564<br />User3</p></td>
+                <td><p>{this.state.bestScore["History"][0]}</p></td>
+                <td><p>{this.state.bestScore["History"][1]}</p></td>
+                <td><p>{this.state.bestScore["History"][2]}</p></td>
                 <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("History")}>Start now!</button></td>
               </tr><tr>
                 <td><p>Politics</p></td>
                 <td><p>{Object.values(this.state.myScore)[0]["Politics"]}</p></td>
-                <td><p>24646<br />User1</p></td>
-                <td><p>14678<br />User2</p></td>
-                <td><p>10564<br />User3</p></td>
+                <td><p>{this.state.bestScore["Politics"][0]}</p></td>
+                <td><p>{this.state.bestScore["Politics"][1]}</p></td>
+                <td><p>{this.state.bestScore["Politics"][2]}</p></td>
                 <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Politics")}>Start now!</button></td>
               </tr><tr style={{"background-color": "#e697b5"}}>
                 <td><p>Art</p></td>
                 <td><p>{Object.values(this.state.myScore)[0]["Art"]}</p></td>
-                <td><p>24646<br />User1</p></td>
-                <td><p>14678<br />User2</p></td>
-                <td><p>10564<br />User3</p></td>
+                <td><p>{this.state.bestScore["Art"][0]}</p></td>
+                <td><p>{this.state.bestScore["Art"][1]}</p></td>
+                <td><p>{this.state.bestScore["Art"][2]}</p></td>
                 <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Art")}>Start now!</button></td>
               </tr><tr>
                 <td><p>Celebrities</p></td>
                 <td><p>{Object.values(this.state.myScore)[0]["Celebrities"]}</p></td>
-                <td><p>24646<br />User1</p></td>
-                <td><p>14678<br />User2</p></td>
-                <td><p>10564<br />User3</p></td>
+                <td><p>{this.state.bestScore["Celebrities"][0]}</p></td>
+                <td><p>{this.state.bestScore["Celebrities"][1]}</p></td>
+                <td><p>{this.state.bestScore["Celebrities"][2]}</p></td>
                 <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Celebrities")}>Start now!</button></td>
               </tr><tr style={{"background-color": "#e697b5"}}>
                 <td><p>Animals</p></td>
                 <td><p>{Object.values(this.state.myScore)[0]["Animals"]}</p></td>
-                <td><p>24646<br />User1</p></td>
-                <td><p>14678<br />User2</p></td>
-                <td><p>10564<br />User3</p></td>
-                <td><button class="button" style={{marginTop: "1em"}} onClick={() => {this.startQuiz("Animals"); this.getMyScore()}}>Start now!</button></td>
+                <td><p>{this.state.bestScore["Animals"][0]}</p></td>
+                <td><p>{this.state.bestScore["Animals"][1]}</p></td>
+                <td><p>{this.state.bestScore["Animals"][2]}</p></td>
+                <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Animals")}>Start now!</button></td>
               </tr></table>
         </span>
       : false}
