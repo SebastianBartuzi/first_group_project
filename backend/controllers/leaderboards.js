@@ -38,7 +38,21 @@ exports.getLeaderboards = async (req, res, next) => {
                 try{
                     var scores = {
                         "Books": 0,
-                        "Gaming": 0
+                        "Film": 0,
+                        "Music": 0,
+                        "Television": 0,
+                        "Video Games": 0,
+                        "Science": 0,
+                        "Computer Science": 0,
+                        "Mathematics": 0,
+                        "Sports": 0,
+                        "Geography": 0,
+                        "History": 0,
+                        "Politics": 0,
+                        "Art": 0,
+                        "Celebrities": 0,
+                        "Animals": 0,
+                        "General Knowledge": 0
                     };
 
                     const leaderboards = await Leaderboards.create({
@@ -91,7 +105,21 @@ exports.updateLeaderboards = async (req, res, next) => {
                 try{
                     var scores = {
                         "Books": 0,
-                        "Gaming": 0
+                        "Film": 0,
+                        "Music": 0,
+                        "Television": 0,
+                        "Video Games": 0,
+                        "Science": 0,
+                        "Computer Science": 0,
+                        "Mathematics": 0,
+                        "Sports": 0,
+                        "Geography": 0,
+                        "History": 0,
+                        "Politics": 0,
+                        "Art": 0,
+                        "Celebrities": 0,
+                        "Animals": 0,
+                        "General Knowledge": 0
                     };
         
                     Object.keys(scores).forEach(function(key) {
