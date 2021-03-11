@@ -12,7 +12,6 @@ exports.getAllScores = async (req, res, next) => {
         allList.push(item);
     });
     res.status(200).json({allList});
-
 }
 
 exports.getLeaderboards = async (req, res, next) => {
@@ -117,7 +116,7 @@ exports.updateLeaderboards = async (req, res, next) => {
                             scores[key] = Math.max(score, scores[key]);
                     });
 
-                    await Leaderboards.updateOne({score: scores});
+                    await leaderboardsExists.updateOne({score: scores});
                     res.status(200).json({success: "Data succesfully updated"});
                 }catch(error){
                     res.status(400).json({error: error.message});
