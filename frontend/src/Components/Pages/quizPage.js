@@ -322,7 +322,7 @@ async getTotalScores(){
         {this.state.mainPage
         ? <span><p className="titlePage">Let's test your knowledge!</p>
         <div >
-              <table className="box">
+              <table className="quizBox">
                 <tr className="rowTitle">
                   <th><p>Category</p></th>
                   <th><p>Your best score</p></th>
@@ -331,14 +331,13 @@ async getTotalScores(){
                   <th><p>#3</p></th>
                   <th></th>
                 </tr>
-                
-                <tr>
+                <tr className>
                   <td><p>General Knowledge</p></td>
                   <td><p>{Object.values(this.state.myScore)[0]["General Knowledge"]}</p></td>
                   <td><p>{this.state.bestScore["General Knowledge"][0]}</p></td>
                   <td><p>{this.state.bestScore["General Knowledge"][1]}</p></td>
                   <td><p>{this.state.bestScore["General Knowledge"][2]}</p></td>
-                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("General Knowledge")}>Start now!</button></td>
+                  <td><button class="button" style={{marginTop: "0.5em", marginBottom:"0.5em"}} onClick={() => this.startQuiz("General Knowledge")}>Start now!</button></td>
                 </tr>
                 
                 <tr>
@@ -347,7 +346,7 @@ async getTotalScores(){
                   <td><p>{this.state.bestScore["Books"][0]}</p></td>
                   <td><p>{this.state.bestScore["Books"][1]}</p></td>
                   <td><p>{this.state.bestScore["Books"][2]}</p></td>
-                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Books")}>Start now!</button></td>
+                  <td><button class="button" style={{marginTop: "0.5em", marginBottom:"0.5em"}} onClick={() => this.startQuiz("Books")}>Start now!</button></td>
                 </tr>
                 
                 <tr>
@@ -356,7 +355,7 @@ async getTotalScores(){
                   <td><p>{this.state.bestScore["Film"][0]}</p></td>
                   <td><p>{this.state.bestScore["Film"][1]}</p></td>
                   <td><p>{this.state.bestScore["Film"][2]}</p></td>
-                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Film")}>Start now!</button></td>
+                  <td><button class="button" style={{marginTop: "0.5em", marginBottom:"0.5em"}} onClick={() => this.startQuiz("Film")}>Start now!</button></td>
                 </tr>
                 
                 <tr>
@@ -365,7 +364,7 @@ async getTotalScores(){
                   <td><p>{this.state.bestScore["Music"][0]}</p></td>
                   <td><p>{this.state.bestScore["Music"][1]}</p></td>
                   <td><p>{this.state.bestScore["Music"][2]}</p></td>
-                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Music")}>Start now!</button></td>
+                  <td><button class="button" style={{marginTop: "0.5em", marginBottom:"0.5em"}} onClick={() => this.startQuiz("Music")}>Start now!</button></td>
                 </tr>
                 
                 <tr>
@@ -374,7 +373,7 @@ async getTotalScores(){
                   <td><p>{this.state.bestScore["Television"][0]}</p></td>
                   <td><p>{this.state.bestScore["Television"][1]}</p></td>
                   <td><p>{this.state.bestScore["Television"][2]}</p></td>
-                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Television")}>Start now!</button></td>
+                  <td><button class="button" style={{marginTop: "0.5em", marginBottom:"0.5em"}} onClick={() => this.startQuiz("Television")}>Start now!</button></td>
                 </tr>
                 
                 <tr>
@@ -383,7 +382,7 @@ async getTotalScores(){
                   <td><p>{this.state.bestScore["Video Games"][0]}</p></td>
                   <td><p>{this.state.bestScore["Video Games"][1]}</p></td>
                   <td><p>{this.state.bestScore["Video Games"][2]}</p></td>
-                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Video Games")}>Start now!</button></td>
+                  <td><button class="button" style={{marginTop: "0.5em", marginBottom:"0.5em"}} onClick={() => this.startQuiz("Video Games")}>Start now!</button></td>
                 </tr>
                 
                 <tr>
@@ -392,7 +391,7 @@ async getTotalScores(){
                   <td><p>{this.state.bestScore["Science"][0]}</p></td>
                   <td><p>{this.state.bestScore["Science"][1]}</p></td>
                   <td><p>{this.state.bestScore["Science"][2]}</p></td>
-                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Science")}>Start now!</button></td>
+                  <td><button class="button" style={{marginTop: "0.5em", marginBottom:"0.5em"}} onClick={() => this.startQuiz("Science")}>Start now!</button></td>
                 </tr>
                 
                 <tr>
@@ -401,7 +400,7 @@ async getTotalScores(){
                   <td><p>{this.state.bestScore["Computer Science"][0]}</p></td>
                   <td><p>{this.state.bestScore["Computer Science"][1]}</p></td>
                   <td><p>{this.state.bestScore["Computer Science"][2]}</p></td>
-                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Computer Science")}>Start now!</button></td>
+                  <td><button class="button" style={{marginTop: "0.5em", marginBottom:"0.5em"}} onClick={() => this.startQuiz("Computer Science")}>Start now!</button></td>
                 </tr>
                 
                 <tr>
@@ -410,7 +409,7 @@ async getTotalScores(){
                   <td><p>{this.state.bestScore["Mathematics"][0]}</p></td>
                   <td><p>{this.state.bestScore["Mathematics"][1]}</p></td>
                   <td><p>{this.state.bestScore["Mathematics"][2]}</p></td>
-                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Mathematics")}>Start now!</button></td>
+                  <td><button class="button" style={{marginTop: "0.5em", marginBottom:"0.5em"}} onClick={() => this.startQuiz("Mathematics")}>Start now!</button></td>
                 </tr>
                 
                 <tr>
@@ -419,7 +418,7 @@ async getTotalScores(){
                   <td><p>{this.state.bestScore["Sports"][0]}</p></td>
                   <td><p>{this.state.bestScore["Sports"][1]}</p></td>
                   <td><p>{this.state.bestScore["Sports"][2]}</p></td>
-                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Sports")}>Start now!</button></td>
+                  <td><button class="button" style={{marginTop: "0.5em", marginBottom:"0.5em"}} onClick={() => this.startQuiz("Sports")}>Start now!</button></td>
                 </tr>
                 
                 <tr>
@@ -428,7 +427,7 @@ async getTotalScores(){
                   <td><p>{this.state.bestScore["Geography"][0]}</p></td>
                   <td><p>{this.state.bestScore["Geography"][1]}</p></td>
                   <td><p>{this.state.bestScore["Geography"][2]}</p></td>
-                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Geography")}>Start now!</button></td>
+                  <td><button class="button" style={{marginTop: "0.5em", marginBottom:"0.5em"}} onClick={() => this.startQuiz("Geography")}>Start now!</button></td>
                 </tr>
                 
                 <tr>
@@ -437,7 +436,7 @@ async getTotalScores(){
                   <td><p>{this.state.bestScore["History"][0]}</p></td>
                   <td><p>{this.state.bestScore["History"][1]}</p></td>
                   <td><p>{this.state.bestScore["History"][2]}</p></td>
-                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("History")}>Start now!</button></td>
+                  <td><button class="button" style={{marginTop: "0.5em", marginBottom:"0.5em"}} onClick={() => this.startQuiz("History")}>Start now!</button></td>
                 </tr>
                 
                 <tr>
@@ -446,7 +445,7 @@ async getTotalScores(){
                   <td><p>{this.state.bestScore["Politics"][0]}</p></td>
                   <td><p>{this.state.bestScore["Politics"][1]}</p></td>
                   <td><p>{this.state.bestScore["Politics"][2]}</p></td>
-                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Politics")}>Start now!</button></td>
+                  <td><button class="button" style={{marginTop: "0.5em", marginBottom:"0.5em"}} onClick={() => this.startQuiz("Politics")}>Start now!</button></td>
                 </tr>
                 
                 <tr>
@@ -455,7 +454,7 @@ async getTotalScores(){
                   <td><p>{this.state.bestScore["Art"][0]}</p></td>
                   <td><p>{this.state.bestScore["Art"][1]}</p></td>
                   <td><p>{this.state.bestScore["Art"][2]}</p></td>
-                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Art")}>Start now!</button></td>
+                  <td><button class="button" style={{marginTop: "0.5em", marginBottom:"0.5em"}} onClick={() => this.startQuiz("Art")}>Start now!</button></td>
                 </tr>
                 
                 <tr>
@@ -464,8 +463,9 @@ async getTotalScores(){
                   <td><p>{this.state.bestScore["Celebrities"][0]}</p></td>
                   <td><p>{this.state.bestScore["Celebrities"][1]}</p></td>
                   <td><p>{this.state.bestScore["Celebrities"][2]}</p></td>
-                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Celebrities")}>Start now!</button></td>
+                  <td><button class="button" style={{marginTop: "0.5em", marginBottom:"0.5em"}} onClick={() => this.startQuiz("Celebrities")}>Start now!</button></td>
                 </tr>
+                
                 
                 <tr>
                   <td><p>Animals</p></td>
@@ -473,7 +473,7 @@ async getTotalScores(){
                   <td><p>{this.state.bestScore["Animals"][0]}</p></td>
                   <td><p>{this.state.bestScore["Animals"][1]}</p></td>
                   <td><p>{this.state.bestScore["Animals"][2]}</p></td>
-                  <td><button class="button" style={{marginTop: "1em"}} onClick={() => this.startQuiz("Animals")}>Start now!</button></td>
+                  <td><button class="button" style={{marginTop: "0.5em", marginBottom:"0.5em"}} onClick={() => this.startQuiz("Animals")}>Start now!</button></td>
                 </tr>
                 
               </table>
@@ -488,7 +488,7 @@ async getTotalScores(){
       {this.state.resultToShow
       ? <span><p style={{"font-size": "40px", "font-family": "Lilita One"}}>{this.state.points == 0 ? "Oh no!" : "Congratulations!"} Your score is {this.state.points}.</p>
       
-      <button class="button" style={{marginTop: "1em"}} onClick={() => this.backToMenu()}>Main Menu</button></span> : true}
+      <button class="button" style={{marginTop: "0.5em", marginBottom:"0.5em"}} onClick={() => this.backToMenu()}>Main Menu</button></span> : true}
       {this.state.done ? <button class="button" style={{marginTop: "2em"}} onClick={() => this.nextQuestion()}>Next Question</button> : true}
       </div>
     )

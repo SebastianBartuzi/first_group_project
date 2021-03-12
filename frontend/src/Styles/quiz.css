@@ -1,51 +1,53 @@
 .titlePage {
-    text-align: center;
-    font-size: 80px;
-    font-family: "Lilita One";
-    color: #945bc9;
-    background-color: #fadb5d;
-    width: 45%;
-    margin: auto;
-    margin-top: 10px;
-    border-radius: 15px;
-  }
+  text-align: center;
+  font-size: 65px;
+  font-family: "Lilita One";
+  color: #945bc9;
+  background-color: #fadb5d;
+  width: 55%;
+  margin-top: 15px;
+  border-radius: 15px;
+}
 
 table {
-    width: "100%"; 
-    font-size: "20px"; 
-    font-family: "Roboto"; 
-    vertical-align: "middle";
+  width: 100%;
+  font-size: 20px;
+  font-family: "Roboto";
+  vertical-align: middle;
+  text-align: center;
+  height: 50%;
 }
 
 .rowTitle {
-    background-color: "#e697b5";
-    height: "100px";
-    font-family: "Lilita One"; 
-    font-size: "30px";
-    margin: 4em;
+  /* background-color: #e697b5; */
+  height: 70px;
+  font-family: "Lilita One";
+  font-size: 25px;
+  padding: 1em;
+  margin: 0.5em;
 }
 
-
-.altRow {
-    background-color: #fab725;
-    color: #fab725;
+tr:nth-child(even) {
+  background-color: #fab725;
 }
 
-.box {
-    margin-top: 5em;
-    padding: 20px;
-    width: 75%;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #fadb5d;
-    text-align: center;
-    grid-area: "box";
-    border-radius: 15px;
-  }
+/* .altRow {
+  background-color: #fab725;
+  color: #fab725;
+} */
 
+.quizBox {
+  margin-top: 1em;
+  width: 70%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fadb5d;
+  text-align: center;
+  border-radius: 15px;
+}
 .mainPage {
-    min-height: "100%";
-    width: "100%"; 
-    padding: "0px 0px";
+  min-height: "100%";
+  width: "100%";
+  padding: "0px 0px";
 }
