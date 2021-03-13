@@ -27,14 +27,13 @@ table {
   margin: 0.5em;
 }
 
-tr:nth-child(even) {
+/* tr:nth-child(even) {
+  background-color: #fab725;
+} */
+
+.altRow {
   background-color: #fab725;
 }
-
-/* .altRow {
-  background-color: #fab725;
-  color: #fab725;
-} */
 
 .quizBox {
   margin-top: 1em;
