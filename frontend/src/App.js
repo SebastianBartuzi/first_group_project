@@ -23,6 +23,7 @@ import JokeGenerator from "./Components/Pages/jokePage";
 import RiddlePage from "./Components/Pages/riddlePage";
 import QuotesPage from "./Components/Pages/quotesPage";
 import InspirobotGen from "./Components/Pages/inspirobotPage";
+import Quiz from "./Components/Pages/quizPage";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
             <Route exact path="/riddle" component={RiddlePage}/>
             <Route exact path="/quotes" component={QuotesPage}/>
             <Route exact path="/inspiroquotes" component={InspirobotGen}/>
+            <Route exact path="/quizzes" component={Quiz}/>
           </Switch>
         </Router>
       </div>
