@@ -4,8 +4,14 @@ import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import logo from '../images/logo.svg';
 import "../Styles/Navbar.css"
 
+var pageArray = ["/catgenerator", "/jokes", "/resources", "/quotes", "/inspiroquotes", "/quizzes"];
+function getRandom() {
+    window.location.href=pageArray[Math.floor(Math.random() * pageArray.length)];
+}
+
 const navbar = () =>  
 {
+    
     return (
         <Navbar className="navbar navbar-expand navbar-dark" style={{backgroundColor: "#925bc9"}}> 
         <Nav.Link as={Link} to="/" className="navbar-brand" style={{paddingLeft: "0px"}}>
@@ -15,7 +21,7 @@ const navbar = () =>
 
         <div className="collapse navbar-collapse" id="navbarNav" style={{fontStyle: 'italic'}}>
             <ul className="navbar-nav mr-auto">
-                <Nav.Link as={Link} to="/" className="nav-item ml-3" style={{marginLeft: "15px"}}>Random</Nav.Link>
+                <Nav.Link onClick={() => getRandom()} className="nav-item ml-3" style={{marginLeft: "15px"}}>Random</Nav.Link>
 
                 <NavDropdown title="Categories" style={{marginLeft: "15px"}}>
                     <NavDropdown.Item as={Link} to="/catgenerator">Cat Generator</NavDropdown.Item>
