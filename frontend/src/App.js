@@ -20,9 +20,8 @@ import CatGenerator from "./Components/Pages/catGenerator";
 import WeeklyPoll from "./Components/Pages/weeklyPollPage";
 import Resources from "./Components/Pages/resources";
 import JokeGenerator from "./Components/Pages/jokePage";
-import RiddlePage from "./Components/Pages/riddlePage";
-import QuotesPage from "./Components/Pages/quotesPage";
-import InspirobotGen from "./Components/Pages/inspirobotPage";
+import Quiz from "./Components/Pages/quizPage";
+import Game from "./Components/Pages/game";
 
 function App() {
   return (
@@ -30,7 +29,7 @@ function App() {
         <Router>
         <Navbar/>
           <Switch>
-            <PrivateRoute exact path="/profile" component={privatePage}/>
+            <PrivateRoute exact path="/private" component={privatePage}/>
             <PrivateRoute exact path="/moodtracker" component={MoodTrackerPage}/>
             <Route exact path="/weeklypoll" component={WeeklyPoll}/>
 
@@ -46,9 +45,8 @@ function App() {
             <Route exact path="/catgenerator" component={CatGenerator}/>
             <Route exact path="/resources" component={Resources}/>
             <Route exact path="/jokes" component={JokeGenerator}/>
-            <Route exact path="/riddle" component={RiddlePage}/>
-            <Route exact path="/quotes" component={QuotesPage}/>
-            <Route exact path="/inspiroquotes" component={InspirobotGen}/>
+            <Route exact path="/quizzes" component={Quiz}/>
+            <Route exact path="/game" component={Game}/>
           </Switch>
         </Router>
       </div>

@@ -22,10 +22,9 @@ const navbar = () =>
                     <NavDropdown.Item as={Link} to="/">Quizzes</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/">Minigames</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/jokes">Jokes</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/quotes">Quotes</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/">Quotes</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/weeklypoll">Weekly Poll</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/resources">Mental Health Resources</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/riddle">Riddle</NavDropdown.Item>
                 </NavDropdown>
 
                 <Nav.Link href="#" style={{marginLeft: "15px"}}>Favourites</Nav.Link>
@@ -34,7 +33,7 @@ const navbar = () =>
             <ul className="navbar-nav mr-auto" style={{position: 'absolute', right: 50}}>
                 {localStorage.getItem("authToken")
                  ? <NavDropdown title="Profile" style={{marginLeft: "15px"}}>
-                        <NavDropdown.Item as={Link} to="/profile">Edit Profile</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/private">Edit Profile</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to="/moodtracker">Mood Tracker</NavDropdown.Item>
                 </NavDropdown>
                  : <><Nav.Link as={Link} to="/login" className="nav-item mr-3">Login</Nav.Link>

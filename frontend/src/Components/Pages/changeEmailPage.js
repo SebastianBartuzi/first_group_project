@@ -32,7 +32,6 @@ const ChangeMailPage = () =>{
                 <h1 class="content-title">Change Email</h1>
                 {error && <p class="error-message">{error}</p>}
                 {success && <p class="success-message">{success}</p>}
-                <span style={{fontSize:"20px", padding:"5px"}}>Username: </span>
                 <input
                     type="text"
                     required
