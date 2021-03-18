@@ -25,13 +25,12 @@ const navbar = () =>
 
                 <NavDropdown title="Categories" style={{marginLeft: "15px"}}>
                     <NavDropdown.Item as={Link} to="/catgenerator">Cat Generator</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/quizzes">Quizzes</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/">Minigames</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/jokes">Jokes</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/quotes">Quotes</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/weeklypoll">Weekly Poll</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/resources">Mental Health Resources</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/quizzes">Quizzes</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/quotes">Quotes</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/riddle">Riddle</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/weeklypoll">Weekly Poll</NavDropdown.Item>
                 </NavDropdown>
 
                 <Nav.Link href="#" style={{marginLeft: "15px"}}>Favourites</Nav.Link>
