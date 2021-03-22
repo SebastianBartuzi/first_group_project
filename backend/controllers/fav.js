@@ -4,7 +4,7 @@ const User = require('../models/UserModel')
 exports.getAllFavs = async (req, res, next) => {
     const { token } = req.body;
     if(!token)
-        res.status(400).json({"error": "Something went wrong!"})
+        return res.status(400).json({"error": "Something went wrong!"})
 
     jwt.verify(token, process.env.JWT_SECRET, async function(err, decodedToken){
         if(err){

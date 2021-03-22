@@ -24,6 +24,7 @@ import RiddlePage from "./Components/Pages/riddlePage";
 import QuotesPage from "./Components/Pages/quotesPage";
 import InspirobotGen from "./Components/Pages/inspirobotPage";
 import Quiz from "./Components/Pages/quizPage";
+import FavoritesPage from "./Components/Pages/favPages";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Switch>
             <PrivateRoute exact path="/profile" component={privatePage}/>
             <PrivateRoute exact path="/moodtracker" component={MoodTrackerPage}/>
+            <PrivateRoute exact path="/favorites" component={FavoritesPage}/>
             <Route exact path="/weeklypoll" component={WeeklyPoll}/>
 
 
