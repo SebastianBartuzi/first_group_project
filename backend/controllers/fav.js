@@ -38,12 +38,24 @@ exports.addRemoveFav = async (req, res, next) => {
             return res.status(400).json({error: "User does not exist!"});
         console.log(userExists)
         console.log(userExists.favArray)
-        if(userExists.favArray == null){
-            await leaderboardsExists.updateOne({score: scores});
-        }
-        
-        userExists.favArray.forEach(element => {
-            
+        // if(userExists.favArray == null){
+        //     await userExists.updateOne({favArray: fav});
+        // }
+        var exists = false
+        var tempFavArray = userExists.favArray
+        tempFavArray.forEach(element => {
+            if (element == fav){
+                exists = true;
+                tempFavArray.splice(tempFavArray.indexOf(element), 1)
+            }
         });
+
+        if (exists==false){
+            tempFavArray.push(fav)
+        }
+
+        await userExists.updateOne({favArray: tempFavArray})
+        return res.status(200).json({success: "Success"})
+
     })
 }
