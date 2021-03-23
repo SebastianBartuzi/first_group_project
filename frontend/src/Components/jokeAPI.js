@@ -74,7 +74,8 @@ class Joke extends React.Component {
             <div>
                 <p className = "setup">{this.state.setup}</p>
                 {this.state.cowsay
-                ? <span>
+                ? <span aria-hidden = "true">
+
                 <div style={{height: "8em"}}><div className="cowBox">
                 <pre>{` \\   ^__^
   \\  (oo)\\_______
@@ -82,11 +83,12 @@ class Joke extends React.Component {
          ||----w |
          ||     ||`}</pre>
                 </div></div>
+
                 </span>
                 : false}
                 {this.state.pengsay
-                ? <span>
-                <div style={{height: "12em"}}><div className="cowBox">
+                ? <span aria-hidden = "true" >
+                <div style={{height: "12em"}}><div className="cowBox" >
                 <pre>{`   \\
     \\  .--.
       |o_o |
@@ -102,9 +104,9 @@ class Joke extends React.Component {
                  ? <p className = "punchline">{this.state.punchline}</p>
                  : <button onClick = {this.showPunchline} class="button" style={{marginTop: "1em"}}>Show Punchline</button>}
                 <div style={{textAlign: "center"}}>
-                <button onClick = {this.toggleCow} class="button" style={{marginTop: "1em", display: "inline-block"}}>Toggle Cow</button>
-                <button onClick = {this.refreshPage} class="button" style={{marginLeft: "1em", display: "inline-block"}}>Next Joke</button>
-                <button onClick = {this.togglePeng} class="button" style={{marginLeft: "1em", display: "inline-block"}}>Toggle Penguin</button>
+                <button onClick = {this.toggleCow} class="button" style={{marginTop: "1em", display: "inline-block"}} aria-hidden = "true">Toggle Cow</button>
+                <button onClick = {this.refreshPage} class="button" style={{marginLeft: "1em", display: "inline-block"}} >Next Joke</button>
+                <button onClick = {this.togglePeng} class="button" style={{marginLeft: "1em", display: "inline-block"}} aria-hidden = "true">Toggle Penguin</button>
                 </div>
             </div>
             
