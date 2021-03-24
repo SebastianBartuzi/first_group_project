@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "../../Styles/fav.css";
+import FavButton from "../favButton"
 
 const FavPage = ({history}) =>{
     const [favList, setFavList] = useState([]);
@@ -63,6 +64,7 @@ const FavPage = ({history}) =>{
                         </span>
                     ))
                 }
+                <FavButton> </FavButton>
             </div>    
         </div>
     )
