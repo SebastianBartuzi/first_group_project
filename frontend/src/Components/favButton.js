@@ -12,6 +12,26 @@ const FavButton = () =>{
         getFav()
     }, [])
 
+    const addRemoveFav = async () => {
+        const config = {
+            header: {
+                "Content-type": "application/json"
+            }
+        }
+
+        try{
+            const token = localStorage.getItem("authToken");
+            const fav = window.location.pathname.replace("/","")
+
+            const {data} = await axios.post("/api/favs/addRemoveFav", {token, fav},  config)
+            getFav()
+            
+            
+        }catch(error){
+            console.log(error);
+        }
+    }
+
     const getFav = async () => {
         
         const config = {
@@ -24,17 +44,24 @@ const FavButton = () =>{
             const token = localStorage.getItem("authToken");
 
             const {data} = await axios.post("/api/favs/getAllFavs", {token}, config)
-            console.log(data)
+            console.log(data["fav"])
+            console.log(window.location.pathname)
+            console.log(window.location.pathname.replace("/",""))
+            if (data["fav"].includes(window.location.pathname.replace("/",""))){
+                setStatus(true)
+            }
+            else{
+                setStatus(false)
+            }
             
         }catch(error){
             console.log(error);
         }
     }
-//<img src={favStatus ? fullStar: emptyStar} alt="Favorites Star"></img>
+
     return (
         <div>
-
-            <h1> HELLO </h1>
+            <img src={favStatus ? fullStar: emptyStar} alt="Favorites Star" onClick={addRemoveFav}></img>
 
 
         </div>
