@@ -4,10 +4,10 @@ import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import logo from '../images/logo.svg';
 import "../Styles/Navbar.css"
 
-const navbar = () =>  
+const navbar = () =>
 {
     return (
-        <Navbar className="navbar navbar-expand navbar-dark" style={{backgroundColor: "#925bc9"}}> 
+        <Navbar className="navbar navbar-expand navbar-dark" style={{backgroundColor: "#925bc9"}}>
         <Nav.Link as={Link} to="/" className="navbar-brand" style={{paddingLeft: "0px"}}>
             <img src={logo} width="40" height="40" className="d-inline-block align-top" alt="logo"/>
             <span className="h2" style={{ fontFamily:'Lilita One', marginLeft: "5px" }}>Project <span style={{ color:"#ffd91d" }}>Happy</span></span>
@@ -20,6 +20,7 @@ const navbar = () =>
                 <NavDropdown title="Categories" style={{marginLeft: "15px"}}>
                     <NavDropdown.Item as={Link} to="/catgenerator">Cat Generator</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/">Quizzes</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/politicialTest">Political Test</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/">Minigames</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/jokes">Jokes</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/">Quotes</NavDropdown.Item>
