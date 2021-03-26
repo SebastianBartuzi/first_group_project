@@ -176,7 +176,7 @@ class PoliticialTest extends React.Component {
     return (
       <div className="centeredDiv">
       {this.state.mainPage
-      ? <span><p style={{"font-size": "60px"}}>Are you curious what is your closest politicial ideology?</p><br />
+      ? <span><p style={{"font-size": "60px"}}>Are you curious about your closest politicial ideology?</p><br />
       <p style={{"font-size": "30px"}}>Let's solve the following quiz and check it out.</p>
       <p style={{"font-size": "30px"}}>You will see 40 statements and for each of them you will have to choose one of 5 answers.</p><br />
       <button class="button" onClick={() => this.startTest()}>Start now!</button></span>
