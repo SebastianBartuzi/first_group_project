@@ -21,6 +21,10 @@ import WeeklyPoll from "./Components/Pages/weeklyPollPage";
 import Resources from "./Components/Pages/resources";
 import JokeGenerator from "./Components/Pages/jokePage";
 import Quiz from "./Components/Pages/quizPage";
+import RiddlePage from "./Components/Pages/riddlePage";
+import QuotesPage from "./Components/Pages/quotesPage";
+import InspirobotGen from "./Components/Pages/inspirobotPage";
+import PoliticialTest from "./Components/Pages/politicalTest";
 
 function App() {
   return (
@@ -28,7 +32,7 @@ function App() {
         <Router>
         <Navbar/>
           <Switch>
-            <PrivateRoute exact path="/private" component={privatePage}/>
+            <PrivateRoute exact path="/profile" component={privatePage}/>
             <PrivateRoute exact path="/moodtracker" component={MoodTrackerPage}/>
             <Route exact path="/weeklypoll" component={WeeklyPoll}/>
 
@@ -45,6 +49,10 @@ function App() {
             <Route exact path="/resources" component={Resources}/>
             <Route exact path="/jokes" component={JokeGenerator}/>
             <Route exact path="/quizzes" component={Quiz}/>
+            <Route exact path="/riddle" component={RiddlePage}/>
+            <Route exact path="/quotes" component={QuotesPage}/>
+            <Route exact path="/inspiroquotes" component={InspirobotGen}/>
+            <Route exact path="/politicalTest" component={PoliticalTest}/>
           </Switch>
         </Router>
       </div>

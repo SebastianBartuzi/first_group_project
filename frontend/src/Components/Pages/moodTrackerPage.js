@@ -12,11 +12,11 @@ const MoodTrackerPage = ({history}) =>{
         "index": 0
     }, {
         "mood": "Great Day",
-        "color": "#EF818A",
+        "color": "#B5EAD7",
         "index": 1
     }, {
         "mood": "Good Day",
-        "color": "#EFC1BE",
+        "color": "#CBB5EB",
         "index": 2
     },{
         "mood": "Fine Day",
@@ -25,12 +25,12 @@ const MoodTrackerPage = ({history}) =>{
     },
     {
         "mood": "Kinda Bad Day",
-        "color": "#CBB5EB",
+        "color": "#EFC1BE",
         "index": 4
     },
     {
         "mood": "Terrible Day",
-        "color": "#B5EAD7",
+        "color": "#EF818A",
         "index": 5
     }]
 
