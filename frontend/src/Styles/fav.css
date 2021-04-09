@@ -43,3 +43,16 @@ hr {
   border: none;
   height: 1px;
 }
+
+.favoriteButton {
+  text-align: center;
+  padding: 8px;
+  position: relative;
+  background-color: none;
+  width: 70px;
+  height: auto;
+  float: right;
+  border-radius: 5px;
+  padding: 8px;
+  margin: 10px;
+}

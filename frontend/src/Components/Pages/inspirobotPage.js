@@ -15,12 +15,14 @@ const InspirobotGen = () =>{
     }
 
     return (
+        <div>
+            <FavButton> </FavButton>
         <div class="content-box">
             <InspirobotImage/>
             <p style={{textAlign: "center", marginTop: "1em"}}>Credits to <a href='https://inspirobot.me/' target = "_blank" rel = "noopener noreferrer">inspirobot.me</a></p>
             <button onClick = {refreshPage} class="button" style={{marginTop: "1em"}}>Next Wisdom</button>
             <button onClick={goTo} className="button" style={{marginTop: "1em"}}>Switch to Quotes</button>
-            <FavButton> </FavButton>
+            </div>
         </div>
     )
 }

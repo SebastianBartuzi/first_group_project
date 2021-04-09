@@ -8,10 +8,13 @@ import FavButton from "../favButton"
 const JokeGenerator = () =>{
     
     return (
+        <div>
+        <FavButton> </FavButton>
         <div class="content-box">
             
             <Joke></Joke>
-            <FavButton> </FavButton>
+            
+        </div>
         </div>
     )
 

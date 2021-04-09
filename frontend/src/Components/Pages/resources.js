@@ -11,9 +11,10 @@ const Resources = () =>{
     
     return (
 
-
+        <div>
+            <FavButton> </FavButton>
         <div  className ="content-box res"> 
-        <FavButton> </FavButton>
+        
         <h1 class="content-title">Mental Health Resources</h1>
 
         <DropdownButton title="Manchester" style={{marginTop: "20px"}}>
@@ -117,7 +118,7 @@ const Resources = () =>{
         </Dropdown.Item>
         </DropdownButton>
 
-
+        </div>
         </div>
     )
 }

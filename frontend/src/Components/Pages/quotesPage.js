@@ -17,11 +17,14 @@ const QuotesPage = () =>{
     }
     
     return (
+        <div>
+            <FavButton> </FavButton>
         <div class="content-box">
             <Quote/>
             <button onClick = {refreshPage} className="button" style={{marginTop: "1em"}}>Next Quote</button>
             <button onClick={goTo} className="button" style={{marginTop: "1em"}}>Switch to Inspirobot</button>
-            <FavButton> </FavButton>
+            
+        </div>
         </div>
     )
 }

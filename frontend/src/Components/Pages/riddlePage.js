@@ -56,6 +56,7 @@ const RiddlePage = () => {
 
     return (
     <div>
+        <FavButton> </FavButton>
          <div>
             <form onSubmit={addRiddle}>
                 <h1>Add Riddle</h1>
@@ -88,7 +89,7 @@ const RiddlePage = () => {
 
 
         <button class="button" onClick = {() => setToggleAnswer(!toggleAnswer)}>Toggle answer</button>
-        <FavButton> </FavButton>
+        
         </div>
     </div>
     );

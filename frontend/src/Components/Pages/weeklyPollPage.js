@@ -105,6 +105,8 @@ const WeeklyPoll = () => {
 
 
     return(
+        <div>
+            <FavButton> </FavButton>
         <div className = "poll-box">
             {error}
             <form onSubmit = {onVote}>
@@ -143,7 +145,7 @@ const WeeklyPoll = () => {
                     <p> option: {element.option}; votes: {element.votes}</p>
                 ))
             } */}
-            <FavButton> </FavButton>
+            </div>
         </div>
     )
 }

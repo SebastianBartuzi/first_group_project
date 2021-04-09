@@ -319,6 +319,8 @@ async getTotalScores(){
 
   render() {
       return (
+        <div>
+        <FavButton> </FavButton>
         <div className={this.state.mainPage ? "mainPage" : "content-box"}>
         {this.state.mainPage
         ? <span><p className="titlePage">Let's test your knowledge!</p>
@@ -491,7 +493,7 @@ async getTotalScores(){
       
       <button class="button" style={{marginTop: "0.5em", marginBottom:"0.5em"}} onClick={() => this.backToMenu()}>Main Menu</button></span> : true}
       {this.state.done ? <button class="button" style={{marginTop: "2em"}} onClick={() => this.nextQuestion()}>Next Question</button> : true}
-      <FavButton> </FavButton>
+      </div>
       </div>
     )
   }
