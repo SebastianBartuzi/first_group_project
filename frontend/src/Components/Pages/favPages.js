@@ -12,6 +12,18 @@ const FavPage = ({history}) =>{
         "catgenerator": "/catgenerator",
     }
 
+    const decodeElement = {
+        "jokes": "Jokes",
+        "moodtracker": "Mood Tracker",
+        "weeklypoll": "Weekly Poll",
+        "catgenerator": "Cat Generator",
+        "favorites": "Favorites",
+        "quizzes": "Quizzes",
+        "quotes": "Quotes",
+        "resources": "Mental Health Resources",
+        "riddle": "Riddles"
+        }
+
     useEffect(() => {
         getFavs();
     }, [])
@@ -51,17 +63,19 @@ const FavPage = ({history}) =>{
 
     return(
         <div>
+            <h1 className="titlePage">Favorites</h1>
             <div className="contentBox">
                 {
                     favList.map((element) => (
-                        <span>
+                        <div>
                             <button className="button" 
                             onClick = {() => {history.push(("/"+element)); history.go(0);}}
-                            > {element} </button>
+                            > {element.replace(element, decodeElement[element])} </button>
                             <button className="button" 
                             onClick = {() => removeFavs(element)}
                             > Remove </button>
-                        </span>
+                            <hr></hr>
+                        </div>
                     ))
                 }
             </div>    
