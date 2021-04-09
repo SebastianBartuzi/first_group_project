@@ -2,6 +2,7 @@ import axios from 'axios'
 import {useState} from 'react'
 import "../../Styles/resources.css";
 import { DropdownButton, Dropdown } from 'react-bootstrap'
+import FavButton from "../favButton"
 
 const Resources = () =>{
 
@@ -12,6 +13,7 @@ const Resources = () =>{
 
 
         <div  className ="content-box res"> 
+        <FavButton> </FavButton>
         <h1 class="content-title">Mental Health Resources</h1>
 
         <DropdownButton title="Manchester" style={{marginTop: "20px"}}>

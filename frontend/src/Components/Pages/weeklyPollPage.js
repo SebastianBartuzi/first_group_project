@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../../Styles/weeklyPoll.css";
 import {Pie} from 'react-chartjs-2';
+import FavButton from "../favButton"
 
 const WeeklyPoll = () => {
     const [question, setQuestion] = useState("");
@@ -142,6 +143,7 @@ const WeeklyPoll = () => {
                     <p> option: {element.option}; votes: {element.votes}</p>
                 ))
             } */}
+            <FavButton> </FavButton>
         </div>
     )
 }

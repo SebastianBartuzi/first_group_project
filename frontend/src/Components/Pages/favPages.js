@@ -56,7 +56,7 @@ const FavPage = ({history}) =>{
                     favList.map((element) => (
                         <span>
                             <button className="button" 
-                            onClick = {() => {history.push(decode[element]); history.go(0);}}
+                            onClick = {() => {history.push(("/"+element)); history.go(0);}}
                             > {element} </button>
                             <button className="button" 
                             onClick = {() => removeFavs(element)}
@@ -64,7 +64,6 @@ const FavPage = ({history}) =>{
                         </span>
                     ))
                 }
-                <FavButton> </FavButton>
             </div>    
         </div>
     )
