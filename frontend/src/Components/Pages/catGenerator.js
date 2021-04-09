@@ -12,10 +12,16 @@ const CatGenerator = () =>{
     
     
     return (
+        <div>
+
+        <FavButton> </FavButton>
         <div class="content-box">
             <CatImage/>
+            
             <button onClick = {refreshPage} class="button" style={{marginTop: "1em"}}>Next Cat</button>
-            <FavButton> </FavButton>
+            
+
+        </div>
 
         </div>
     )

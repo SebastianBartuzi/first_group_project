@@ -5,12 +5,7 @@ import FavButton from "../favButton"
 
 const FavPage = ({history}) =>{
     const [favList, setFavList] = useState([]);
-    const decode = {
-        "jokes": "/jokes",
-        "moodtracker": "/moodtracker",
-        "weeklypoll": "/weeklypoll",
-        "catgenerator": "/catgenerator",
-    }
+
 
     const decodeElement = {
         "jokes": "Jokes",

@@ -3,6 +3,19 @@
     box-sizing: border-box;
 }
 
+.favoriteButton {
+    align-self: center;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    border: none;
+    display:inline-block;
+    position:absolute;
+    right: 0;
+    top: 50px;;
+    background-color: none;
+}
+
 .button {
     background-color: #945bc9;
     border: none;

@@ -30,3 +30,9 @@ body {
     color: black;
     margin-bottom: 0.5em;
 }
+
+.favoriteButton {
+    align-self: center;
+    background-color: #fadb5d;
+
+}

@@ -61,7 +61,7 @@ const FavButton = () =>{
 
     return (
         <div>
-            <img src={favStatus ? fullStar: emptyStar} alt="Favorites Star" onClick={addRemoveFav}></img>
+            <img src={favStatus ? fullStar: emptyStar} alt="Favorites Star" class="favoriteButton" onClick={addRemoveFav}></img>
 
 
         </div>
