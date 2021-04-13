@@ -57,7 +57,7 @@ const RiddlePage = () => {
     return (
     <div>
         <FavButton> </FavButton>
-         <div>
+         {/* <div>
             <form onSubmit={addRiddle}>
                 <h1>Add Riddle</h1>
                 <input type="text" 
@@ -76,7 +76,7 @@ const RiddlePage = () => {
                 <br/>
                 <button type="submit">Add</button>
             </form>
-        </div>
+        </div> */}
         
         <div className="content-box" style={{padding:"15px", borderRadius:"15px"}}>
         <p className="setup" style={{padding: "15px"}}> {question} </p>

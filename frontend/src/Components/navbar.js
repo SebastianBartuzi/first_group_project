@@ -4,7 +4,7 @@ import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import logo from '../images/logo.svg';
 import "../Styles/Navbar.css"
 
-var pageArray = ["/catgenerator", "/jokes", "/resources", "/quotes", "/inspiroquotes", "/quizzes"];
+var pageArray = ["/catgenerator", "/jokes", "/resources", "/quotes", "/inspiroquotes", "/quizzes", "/politicaltest"];
 function getRandom() {
     window.location.href=pageArray[Math.floor(Math.random() * pageArray.length)];
 }
@@ -30,7 +30,7 @@ const navbar = () =>
                     <NavDropdown.Item as={Link} to="/politicaltest">Political Quiz</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/quizzes">Quizzes</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/quotes">Quotes</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/riddle">Riddle</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/riddle">Riddles</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/weeklypoll">Weekly Poll</NavDropdown.Item>
                 </NavDropdown>
 
