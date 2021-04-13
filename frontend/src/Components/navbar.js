@@ -27,6 +27,7 @@ const navbar = () =>
                     <NavDropdown.Item as={Link} to="/catgenerator">Cat Generator</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/jokes">Jokes</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/resources">Mental Health Resources</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/politicaltest">Political Quiz</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/quizzes">Quizzes</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/quotes">Quotes</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/riddle">Riddle</NavDropdown.Item>
