@@ -10,7 +10,7 @@
   padding: 10px;
 }
 
-.button {
+.favListButton {
   background-color: #945bc9;
   border: none;
   color: white;
@@ -22,7 +22,7 @@
   /* width: auto; */
 }
 
-.button:hover {
+.favListButton:hover {
   background-color: #81007f !important;
 }
 
@@ -45,6 +45,8 @@ hr {
 }
 
 .favoriteButton {
+  align-self: center;
+  background-color: #fadb5d;
   text-align: center;
   padding: 8px;
   position: relative;
