@@ -25,6 +25,7 @@ import QuotesPage from "./Components/Pages/quotesPage";
 import InspirobotGen from "./Components/Pages/inspirobotPage";
 import Quiz from "./Components/Pages/quizPage";
 import FavoritesPage from "./Components/Pages/favPages";
+import PoliticalTest from "./Components/Pages/politicalTest";
 
 function App() {
   return (
