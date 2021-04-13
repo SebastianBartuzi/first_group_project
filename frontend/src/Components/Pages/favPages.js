@@ -17,7 +17,8 @@ const FavPage = ({history}) =>{
         "quotes": "Quotes",
         "resources": "Mental Health Resources",
         "riddle": "Riddles",
-        "random": "Random"
+        "random": "Random",
+        "politicaltest": "Political Test"
         }
 
     useEffect(() => {
