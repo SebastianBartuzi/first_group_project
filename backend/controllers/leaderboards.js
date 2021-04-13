@@ -11,14 +11,14 @@ exports.getAllScores = async (req, res, next) => {
         var item = element.score;
         allList.push(item);
     });
-    res.status(200).json({allList});
+    return res.status(200).json({allList});
 }
 
 exports.getLeaderboards = async (req, res, next) => {
    
     const { token } = req.body;
     if(!token)
-        res.status(400).json({"error": "Something went wrong!"})
+        return res.status(400).json({"error": "Something went wrong!"})
 
     jwt.verify(token, process.env.JWT_SECRET, async function(err, decodedToken){
         if(err){
@@ -59,21 +59,21 @@ exports.getLeaderboards = async (req, res, next) => {
                     "userID": id,
                     "score": scores
                 });
-                res.status(200).json({scores});
+                return res.status(200).json({scores});
             }catch(error){
-                res.status(400).json({error: error.message});
+                return res.status(400).json({error: error.message});
             }
             }else{
                 try{
                     const scores = leaderboardsExists.score;
-                    res.status(200).json({scores});
+                    return res.status(200).json({scores});
                 }catch(error){
-                    res.status(400).json({error: error.message});
+                    return res.status(400).json({error: error.message});
                 }
             }
 
             }catch(error){
-                res.status(400).json({error: error.message});
+                return res.status(400).json({error: error.message});
             }
 
     });
@@ -85,7 +85,7 @@ exports.updateLeaderboards = async (req, res, next) => {
     const { token, score, category } = req.body;
     
     if(!token)
-        res.status(400).json({"error": "Something went wrong!"})
+        return res.status(400).json({"error": "Something went wrong!"})
 
     jwt.verify(token, process.env.JWT_SECRET, async function(err, decodedToken){
         if(err){
@@ -131,9 +131,9 @@ exports.updateLeaderboards = async (req, res, next) => {
                     "userID": id,
                     "score": scores
                 });
-                res.status(200).json({success: "Data succesfully added"});
+                return res.status(200).json({success: "Data succesfully added"});
             }catch(error){
-                res.status(400).json({error: error.message});
+                return res.status(400).json({error: error.message});
             }
             }else{
                 try{
@@ -145,14 +145,14 @@ exports.updateLeaderboards = async (req, res, next) => {
                     });
 
                     await leaderboardsExists.updateOne({score: scores});
-                    res.status(200).json({success: "Data succesfully updated"});
+                    return res.status(200).json({success: "Data succesfully updated"});
                 }catch(error){
-                    res.status(400).json({error: error.message});
+                    return res.status(400).json({error: error.message});
                 }
             }
 
             }catch(error){
-                res.status(400).json({error: error.message});
+                return res.status(400).json({error: error.message});
             }
 
     });
