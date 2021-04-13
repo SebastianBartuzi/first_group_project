@@ -53,6 +53,7 @@ function App() {
             <Route exact path="/quotes" component={QuotesPage}/>
             <Route exact path="/inspiroquotes" component={InspirobotGen}/>
             <Route exact path="/quizzes" component={Quiz}/>
+            <Route exact path="/politicaltest" component={PoliticalTest}/>
           </Switch>
         </Router>
       </div>
