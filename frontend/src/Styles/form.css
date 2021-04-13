@@ -1,34 +1,34 @@
 .text-input {
-    padding: 0.4em 0.2em;
-    box-sizing: border-box;
+  padding: 0.4em 0.2em;
+  box-sizing: border-box;
 }
 
 .button {
-    background-color: #945bc9;
-    border: none;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    border-radius: 12px;
-    display: flex;
-    margin: 0 auto;
-    /* width: auto; */
+  background-color: #945bc9;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 12px;
+  display: flex;
+  margin: 0 auto;
+  /* width: auto; */
 }
 
 .button:hover {
-    background-color: #81007f !important;
+  background-color: #81007f !important;
 }
 
 .error-message {
-    text-align: center;
-    font-family: "Roboto";
-    font-style: bold;
-    color: red;
+  text-align: center;
+  font-family: "Roboto";
+  font-style: bold;
+  color: red;
 }
 
 .success-message {
-    text-align: center;
-    font-family: "Roboto";
-    font-style: bold;
-    color: green;
+  text-align: center;
+  font-family: "Roboto";
+  font-style: bold;
+  color: green;
 }

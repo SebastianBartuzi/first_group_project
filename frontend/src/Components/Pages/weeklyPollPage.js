@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../../Styles/weeklyPoll.css";
 import {Pie} from 'react-chartjs-2';
+import FavButton from "../favButton"
 
 const WeeklyPoll = () => {
     const [question, setQuestion] = useState("");
@@ -104,6 +105,8 @@ const WeeklyPoll = () => {
 
 
     return(
+        <div>
+            <FavButton> </FavButton>
         <div className = "poll-box">
             {error}
             <form onSubmit = {onVote}>
@@ -142,6 +145,7 @@ const WeeklyPoll = () => {
                     <p> option: {element.option}; votes: {element.votes}</p>
                 ))
             } */}
+            </div>
         </div>
     )
 }

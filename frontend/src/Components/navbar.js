@@ -34,7 +34,7 @@ const navbar = () =>
                     <NavDropdown.Item as={Link} to="/weeklypoll">Weekly Poll</NavDropdown.Item>
                 </NavDropdown>
 
-                <Nav.Link href="#" style={{marginLeft: "15px"}}>Favourites</Nav.Link>
+                <Nav.Link as={Link} to="/favorites" style={{marginLeft: "15px"}}>Favourites</Nav.Link>
             </ul>
 
             <ul className="navbar-nav mr-auto" style={{position: 'absolute', right: 50}}>

@@ -2,6 +2,7 @@ import axios from 'axios'
 import {useState} from 'react'
 import "../../Styles/resources.css";
 import { DropdownButton, Dropdown } from 'react-bootstrap'
+import FavButton from "../favButton"
 
 const Resources = () =>{
 
@@ -10,8 +11,10 @@ const Resources = () =>{
     
     return (
 
-
+        <div>
+            <FavButton> </FavButton>
         <div  className ="content-box res"> 
+        
         <h1 class="content-title">Mental Health Resources</h1>
 
         <DropdownButton title="Manchester" style={{marginTop: "20px"}}>
@@ -115,7 +118,7 @@ const Resources = () =>{
         </Dropdown.Item>
         </DropdownButton>
 
-
+        </div>
         </div>
     )
 }

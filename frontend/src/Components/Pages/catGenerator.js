@@ -2,6 +2,7 @@ import axios from 'axios'
 import {useState} from 'react'
 import CatImage from '../catImage.js';
 import "../../Styles/form.css";
+import FavButton from "../favButton"
 
 const CatGenerator = () =>{
 
@@ -11,9 +12,17 @@ const CatGenerator = () =>{
     
     
     return (
+        <div>
+
+        <FavButton> </FavButton>
         <div class="content-box">
             <CatImage/>
+            
             <button onClick = {refreshPage} class="button" style={{marginTop: "1em"}}>Next Cat</button>
+            
+
+        </div>
+
         </div>
     )
 }

@@ -1,32 +1,33 @@
 body {
-    background: repeating-linear-gradient(
-      to right,
-      #d2c7ff,
-      #d2c7ff 100px,
-      #fffdf5 100px,
-      #fffdf5 200px);
-    color: black;
-    font-family:"Roboto";
+  background: repeating-linear-gradient(
+    to right,
+    #d2c7ff,
+    #d2c7ff 100px,
+    #fffdf5 100px,
+    #fffdf5 200px
+  );
+  color: black;
+  font-family: "Roboto";
 }
 
 .content-box {
-    display: inline-block;
-    margin-top: 4em;
-    border-radius: 10px;
+  display: inline-block;
+  margin-top: 4em;
+  border-radius: 10px;
 
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 
-    background-color: #fadb5d;
-    padding: 1.5em;
+  background-color: #fadb5d;
+  padding: 1.5em;
 }
 
 .content-title {
-    text-align: center;
-    font-size: 3em;
-    font-family: "Roboto";
-    font-style: italic;
-    color: black;
-    margin-bottom: 0.5em;
+  text-align: center;
+  font-size: 3em;
+  font-family: "Roboto";
+  font-style: italic;
+  color: black;
+  margin-bottom: 0.5em;
 }

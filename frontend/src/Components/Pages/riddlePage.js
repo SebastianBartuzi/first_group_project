@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import "../../Styles/jokes.css";
+import FavButton from "../favButton"
 
 const RiddlePage = () => {
     const [toggleAnswer, setToggleAnswer] = useState(false);
@@ -55,6 +56,7 @@ const RiddlePage = () => {
 
     return (
     <div>
+        <FavButton> </FavButton>
          <div>
             <form onSubmit={addRiddle}>
                 <h1>Add Riddle</h1>
@@ -75,6 +77,7 @@ const RiddlePage = () => {
                 <button type="submit">Add</button>
             </form>
         </div>
+        
         <div className="content-box" style={{padding:"15px", borderRadius:"15px"}}>
         <p className="setup" style={{padding: "15px"}}> {question} </p>
         {
@@ -86,6 +89,7 @@ const RiddlePage = () => {
 
 
         <button class="button" onClick = {() => setToggleAnswer(!toggleAnswer)}>Toggle answer</button>
+        
         </div>
     </div>
     );
