@@ -5,7 +5,8 @@ class CatImage extends React.Component {
     constructor() {
         super();
         this.state = {
-            imageUrl : ""
+            imageUrl : "",
+            imageAlt: ""
         }
     }
 
@@ -14,6 +15,12 @@ class CatImage extends React.Component {
         axios.get('https://api.thecatapi.com/v1/images/search', {params:{ limit:1, size:"full"}})
         .then(response => {
             this.setState({imageUrl : response.data[0].url});
+            this.setState({imageAlt : "A"})
+            if (response.data[0].breeds.length > 0){
+                this.setState({imageAlt : this.state.imageAlt + " " + response.data[0].breeds[0].name})
+            }
+            this.setState({imageAlt : this.state.imageAlt + " cat"})
+            console.log(response.data[0])
         });
     }
     
@@ -28,7 +35,7 @@ class CatImage extends React.Component {
 
     render() {
         return (
-            <img src={this.state.imageUrl} className="resize" onLoad={this.resizeImage}/>
+            <img src={this.state.imageUrl} alt={this.state.imageAlt} className="resize" onLoad={this.resizeImage}/>
         )
     }
 }
