@@ -18,7 +18,7 @@ const QuotesPage = () =>{
     
     return (
         <div>
-            <FavButton> </FavButton>
+            {localStorage.getItem("authToken") && <FavButton> </FavButton>}
         <div class="content-box">
             <Quote/>
             <button onClick = {refreshPage} className="button" style={{marginTop: "1em"}}>Next Quote</button>

@@ -3,6 +3,7 @@ import React from "react";
 import {calculateResults} from "../politicalTestCalculator.js";
 import "../../Styles/politicalTest.css";
 import axios from 'axios';
+import FavButton from "../favButton"
 
 class PoliticialTest extends React.Component {
   constructor() {
@@ -156,7 +157,7 @@ class PoliticialTest extends React.Component {
       <td style={{width: "2.5%"}}></td>
       <td style={{width: "18%"}}><button id={i*5 + 2} onClick={() => this.selectButton(i, i*5 + 2)} class="answerButton" style={{"background-color": "#2CB311"}}>Agree partially.</button></td>
       <td style={{width: "2.5%"}}></td>
-      <td style={{width: "18%"}}><button id={i*5 + 3} onClick={() => this.selectButton(i, i*5 + 3)} class="answerButton" style={{"background-color": "#4066FF"}}>Don't know./No opinion.</button></td>
+      <td style={{width: "18%"}}><button id={i*5 + 3} onClick={() => this.selectButton(i, i*5 + 3)} class="answerButton" style={{"background-color": "#4066FF"}}>No Opinion</button></td>
       <td style={{width: "2.5%"}}></td>
       <td style={{width: "18%"}}><button id={i*5 + 4} onClick={() => this.selectButton(i, i*5 + 4)} class="answerButton" style={{"background-color": "#F01313"}}>Disagree partially.</button></td>
       <td style={{width: "2.5%"}}></td>
@@ -174,15 +175,20 @@ class PoliticialTest extends React.Component {
 
   render() {
     return (
+      <div> {localStorage.getItem("authToken") && <FavButton> </FavButton>}
       <div className="centeredDivP">
+        
       {this.state.mainPage
-      ? <span><p style={{"font-size": "60px"}}>Are you curious what's your closest politicial ideology?</p><br />
+      ? <span> {localStorage.getItem("authToken") && <FavButton> </FavButton>}
+        <p style={{"font-size": "60px"}}>Are you curious what's your closest political ideology?</p><br />
       <p style={{"font-size": "30px"}}>Let's solve the following quiz and check it out.</p>
       <p style={{"font-size": "30px"}}>You will see 40 statements and for each of them you will have to choose one of 5 answers.</p><br />
       <button class="button" onClick={() => this.startTest()}>Start now!</button></span>
+      
       : false}
       {this.state.testStarted
       ? <span><p style={{"font-size": "60px"}}>Solve the test!</p><br />
+      
       <p id="warning" style={{"font-size": "40px", display: "none", color: "red"}}><b>Select all answers!</b><br /></p>
       {this.generateQuestions()}
       <button class="button" onClick={() => this.showResult()}>Count results!</button><br /></span>
@@ -201,6 +207,7 @@ class PoliticialTest extends React.Component {
       <button class="button" onClick={() => this.doAgain()}>Do it again!</button><br />
       </span>
       : true}
+      </div>
       </div>
     );
   }

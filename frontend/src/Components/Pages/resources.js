@@ -12,7 +12,7 @@ const Resources = () =>{
     return (
 
         <div>
-            <FavButton> </FavButton>
+            {localStorage.getItem("authToken") && <FavButton> </FavButton>}
         <div  className ="content-box res"> 
         
         <h1 class="content-title">Mental Health Resources</h1>

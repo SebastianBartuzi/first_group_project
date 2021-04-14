@@ -218,7 +218,7 @@ const WeeklyPoll = () => {
 
     return(
         <div>
-            <FavButton> </FavButton>
+            {localStorage.getItem("authToken") && <FavButton> </FavButton>}
         <div className = "poll-box">
             {error}
             <form onSubmit = {onVote}>

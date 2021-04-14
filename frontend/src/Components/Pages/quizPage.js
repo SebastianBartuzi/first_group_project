@@ -320,7 +320,7 @@ async getTotalScores(){
   render() {
       return (
         <div>
-        <FavButton> </FavButton>
+        {localStorage.getItem("authToken") && <FavButton> </FavButton>}
         <div className={this.state.mainPage ? "mainPage" : "content-box"}>
         {this.state.mainPage
         ? <span><p className="titlePage">Let's test your knowledge!</p>

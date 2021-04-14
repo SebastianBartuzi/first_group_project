@@ -56,7 +56,7 @@ const RiddlePage = () => {
 
     return (
     <div>
-        <FavButton> </FavButton>
+        {localStorage.getItem("authToken") && <FavButton> </FavButton>}
          {/* <div>
             <form onSubmit={addRiddle}>
                 <h1>Add Riddle</h1>

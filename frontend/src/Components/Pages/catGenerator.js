@@ -14,7 +14,7 @@ const CatGenerator = () =>{
     return (
         <div>
 
-        <FavButton> </FavButton>
+        {localStorage.getItem("authToken") && <FavButton> </FavButton>}
         <div class="content-box">
             <CatImage/>
             
