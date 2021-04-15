@@ -153,15 +153,15 @@ class PoliticialTest extends React.Component {
       content.push(<span><div id={201 + i} class="questionDiv">
       <p style={{"font-size": "30px"}}>{i + 1}. {this.state.questions[i]}</p><br />
       <table style={{width: "95%", display: "block", "margin-left": "auto", "margin-right": "auto", "font-size": "20px"}}><tr>
-      <td style={{width: "18%"}}><button id={i*5 + 1} onClick={() => this.selectButton(i, i*5 + 1)} class="answerButton" style={{"background-color": "#1A7907"}}>Agree completely.</button></td>
+      <td style={{width: "18%"}}><button id={i*5 + 1} onClick={() => this.selectButton(i, i*5 + 1)} class="answerButton" style={{"background-color": "#B5EAD7"}}>Agree completely.</button></td>
       <td style={{width: "2.5%"}}></td>
-      <td style={{width: "18%"}}><button id={i*5 + 2} onClick={() => this.selectButton(i, i*5 + 2)} class="answerButton" style={{"background-color": "#2CB311"}}>Agree partially.</button></td>
+      <td style={{width: "18%"}}><button id={i*5 + 2} onClick={() => this.selectButton(i, i*5 + 2)} class="answerButton" style={{"background-color": "#CBB5EB"}}>Agree partially.</button></td>
       <td style={{width: "2.5%"}}></td>
-      <td style={{width: "18%"}}><button id={i*5 + 3} onClick={() => this.selectButton(i, i*5 + 3)} class="answerButton" style={{"background-color": "#4066FF"}}>No Opinion</button></td>
+      <td style={{width: "18%"}}><button id={i*5 + 3} onClick={() => this.selectButton(i, i*5 + 3)} class="answerButton" style={{"background-color": "#FFDAC1"}}>No Opinion</button></td>
       <td style={{width: "2.5%"}}></td>
-      <td style={{width: "18%"}}><button id={i*5 + 4} onClick={() => this.selectButton(i, i*5 + 4)} class="answerButton" style={{"background-color": "#F01313"}}>Disagree partially.</button></td>
+      <td style={{width: "18%"}}><button id={i*5 + 4} onClick={() => this.selectButton(i, i*5 + 4)} class="answerButton" style={{"background-color": "#EFC1BE"}}>Disagree partially.</button></td>
       <td style={{width: "2.5%"}}></td>
-      <td style={{width: "18%"}}><button id={i*5 + 5} onClick={() => this.selectButton(i, i*5 + 5)} class="answerButton" style={{"background-color": "#BD1212"}}>Disagree completely.</button></td></tr></table>
+      <td style={{width: "18%"}}><button id={i*5 + 5} onClick={() => this.selectButton(i, i*5 + 5)} class="answerButton" style={{"background-color": "#EF818A"}}>Disagree completely.</button></td></tr></table>
       </div><br />
       </span>);
     }
